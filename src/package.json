@@ -1,0 +1,32 @@
+{
+  "name": "ngx-segment-analytics",
+  "version": "1.0.1",
+  "description": "Segment Analytics for Angular",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/opendecide/ngx-segment-analytics"
+  },
+  "author": {
+    "name": "OpenDecide",
+    "email": "contact@opendecide.com"
+  },
+  "keywords": [
+    "angular",
+    "segment"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/opendecide/ngx-segment-analytics/issues"
+  },
+  "module": "ngx-segment-analytics.js",
+  "typings": "ngx-segment-analytics.d.ts",
+  "peerDependencies": {
+    "@angular/core": "^4.0.0",
+    "@angular/platform-browser": "^4.0.0",
+    "rxjs": "^5.1.0",
+    "zone.js": "^0.8.4"
+  },
+  "dependencies": {
+    "analytics.js": "^2.9.1"
+  }
+}

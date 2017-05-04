@@ -1,0 +1,11 @@
+{
+  "name": "ngx-segment-analytics",
+  "version": "1.0.0",
+  "dependencies": {
+    "analytics.js": {
+      "version": "2.9.1",
+      "from": "analytics.js@>=2.9.1 <3.0.0",
+      "resolved": "https://registry.npmjs.org/analytics.js/-/analytics.js-2.9.1.tgz"
+    }
+  }
+}
