@@ -13,7 +13,7 @@ export const SEGMENT_CONFIG = new InjectionToken<SegmentConfig>('ngx-segment-ana
 })
 export class SegmentModule {
 
-    static forRoot(config): ModuleWithProviders {
+    public static forRoot(config: SegmentConfig): ModuleWithProviders {
         return {
             ngModule: SegmentModule,
             providers: [
@@ -26,7 +26,8 @@ export class SegmentModule {
     constructor(@Optional() @SkipSelf() parentModule: SegmentModule) {
         if (parentModule) {
             throw new Error(
-                'SegmentModule is already loaded. Import it in the AppModule only');
+                'SegmentModule is already loaded. Import it in the AppModule only'
+            );
         }
     }
 }
