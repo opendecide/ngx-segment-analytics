@@ -1,11 +1,11 @@
 {
   "name": "ngx-segment-analytics",
-  "version": "1.0.0",
+  "version": "1.0.2",
+  "lockfileVersion": 1,
   "dependencies": {
     "analytics.js": {
-      "version": "2.9.1",
-      "from": "analytics.js@>=2.9.1 <3.0.0",
-      "resolved": "https://registry.npmjs.org/analytics.js/-/analytics.js-2.9.1.tgz"
+      "version": "https://registry.npmjs.org/analytics.js/-/analytics.js-2.9.1.tgz",
+      "integrity": "sha1-7vGG/b3Qe9b1MAIL4CXfDmeD2Z8="
     }
   }
 }
