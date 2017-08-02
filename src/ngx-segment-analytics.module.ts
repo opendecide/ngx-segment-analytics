@@ -1,14 +1,22 @@
-import { NgModule, ModuleWithProviders, Optional, SkipSelf, InjectionToken } from '@angular/core';
+import { NgModule, ModuleWithProviders, Optional, SkipSelf, InjectionToken, Injectable } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SegmentService } from './ngx-segment-analytics.service';
 import { SegmentConfig } from './ngx-segment-analytics.config';
 
 export const SEGMENT_CONFIG = new InjectionToken<SegmentConfig>('ngx-segment-analytics.config');
 
+@Injectable()
+export class WindowWrapper extends Window {
+    public analytics: any;
+}
+
+export function getWindow() { return window; }
+
+
 @NgModule({
     imports: [CommonModule],
     providers: [
-        { provide: Window, useValue: window }
+        { provide: WindowWrapper, useFactory: getWindow }
     ]
 })
 export class SegmentModule {

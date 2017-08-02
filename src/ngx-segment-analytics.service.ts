@@ -1,13 +1,13 @@
 import { Inject, Injectable } from '@angular/core';
 import { DOCUMENT } from '@angular/platform-browser';
-import { SEGMENT_CONFIG } from './ngx-segment-analytics.module';
+import {SEGMENT_CONFIG, WindowWrapper} from './ngx-segment-analytics.module';
 import { SegmentConfig } from './ngx-segment-analytics.config';
 
 @Injectable()
 export class SegmentService {
 
     constructor(
-        @Inject(Window) private w: any,
+        @Inject(WindowWrapper) private w: WindowWrapper,
         @Inject(DOCUMENT) private doc: Document,
         @Inject(SEGMENT_CONFIG) private config: SegmentConfig
     ) {
