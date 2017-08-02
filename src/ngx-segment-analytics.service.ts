@@ -1,6 +1,6 @@
 import { Inject, Injectable } from '@angular/core';
-import { DOCUMENT } from '@angular/platform-browser';
-import {SEGMENT_CONFIG, WindowWrapper} from './ngx-segment-analytics.module';
+import { DOCUMENT } from '@angular/common';
+import { SEGMENT_CONFIG, WindowWrapper } from './ngx-segment-analytics.module';
 import { SegmentConfig } from './ngx-segment-analytics.config';
 
 @Injectable()
