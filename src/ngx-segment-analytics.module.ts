@@ -21,7 +21,7 @@ export function getWindow() { return window; }
 })
 export class SegmentModule {
 
-    public static forRoot(config: SegmentConfig): ModuleWithProviders {
+    public static forRoot(config?: SegmentConfig): ModuleWithProviders {
         return {
             ngModule: SegmentModule,
             providers: [
@@ -33,9 +33,7 @@ export class SegmentModule {
 
     constructor(@Optional() @SkipSelf() parentModule: SegmentModule) {
         if (parentModule) {
-            throw new Error(
-                'SegmentModule is already loaded. Import it in the AppModule only'
-            );
+            throw new Error('SegmentModule is already loaded. Import it in the AppModule only');
         }
     }
 }
