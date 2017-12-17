@@ -1,5 +1,6 @@
 # ngx-segment-analytics
 
+[![Build Status](https://travis-ci.org/opendecide/ngx-segment-analytics.svg?branch=master)](https://travis-ci.org/opendecide/ngx-segment-analytics)
 [![GitHub Downloads All Releases](https://img.shields.io/github/downloads/opendecide/ngx-segment-analytics/total.svg)](https://github.com/opendecide/ngx-segment-analytics)
 [![npm Downloads All Releases](https://img.shields.io/npm/dw/ngx-segment-analytics.svg)](https://www.npmjs.com/package/ngx-segment-analytics)
 [![npm Version](https://img.shields.io/npm/v/ngx-segment-analytics.svg)](https://www.npmjs.com/package/ngx-segment-analytics)
@@ -65,6 +66,10 @@ export class HeroComponent implements OnInit {
 }
 ```
 
+## Documentation
+
+A full documentation is available [here](https://opendecide.github.io/ngx-segment-analytics/)
+
 ## API
 
 This API is compatible with `analytics.js` but returns `Promises` instead of taking `callbacks` in parameters.
@@ -86,6 +91,26 @@ trackLink(elements: HTMLElement | HTMLElement[], event: string | Function, prope
 trackForm(forms: HTMLElement | HTMLElement[], event: string | Function, properties?: Object | Function): void;
 timeout(timeout: number): void;
 ```
+
+## Development
+
+To lint all `*.ts` files:
+
+```bash
+$ npm run lint
+```
+
+To generate all `*.js`, `*.d.ts` and `*.metadata.json` files:
+
+```bash
+$ npm run build
+```
+
+To publish on npmjs registry :
+```bash
+$ npm publish dist
+```
+
 
 ## License
 

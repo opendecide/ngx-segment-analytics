@@ -333,7 +333,9 @@ export class HeroComponent implements OnInit {
             .then(() =&gt; console.log(&quot;Event sended&quot;));
     }
 
-}</code></pre><h2 id="api">API</h2>
+}</code></pre><h2 id="documentation">Documentation</h2>
+<p>A full documentation is available <a href="https://opendecide.github.io/ngx-segment-analytics/">here</a></p>
+<h2 id="api">API</h2>
 <p>This API is compatible with <code>analytics.js</code> but returns <code>Promises</code> instead of taking <code>callbacks</code> in parameters.</p>
 <pre class="line-numbers"><code class="language-typescript">identify(userId?: string, traits?: any, options?: any): Promise&lt;SegmentService&gt;;
 track(event: string, properties?: any, options?: any): Promise&lt;SegmentService&gt;;

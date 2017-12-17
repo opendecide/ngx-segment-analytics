@@ -66,6 +66,10 @@ export class HeroComponent implements OnInit {
 }
 ```
 
+## Documentation
+
+A full documentation is available [here](https://opendecide.github.io/ngx-segment-analytics/)
+
 ## API
 
 This API is compatible with `analytics.js` but returns `Promises` instead of taking `callbacks` in parameters.
