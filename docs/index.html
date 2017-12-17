@@ -36,15 +36,21 @@
                         <a data-type="chapter-link" href="./index.html"><span class="fa fa-home"></span>Getting started</a>
                         <ul class="links">
                                 <li class="link">
-                                    <a href="./index.html"  class="active" ><span class="fa fa-file-text-o"></span>README</a>
-                                </li>
-                                <li class="link">
-                                    <a  href="./overview.html" 
+                                    <a 
                                         
                                          href="./overview.html" 
-                                        
+                                         href="./overview.html" 
                                         >
                                         <span class="fa fa-th"></span>Overview
+                                    </a>
+                                </li>
+                                <li class="link">
+                                  <a href="./index.html"  class="active" ><span class="fa fa-file-text-o"></span>README</a>
+                                </li>
+                                <li class="link">
+                                        <a href="./license.html"
+                                    >
+                                        <span class="fa fa-file-text-o"></span>LICENSE
                                     </a>
                                 </li>
                         </ul>
@@ -53,13 +59,15 @@
             
                     <li class="chapter">
                         <a data-type="chapter-link" href="./modules.html" >
-                            <span class="fa fa-archive"></span>
-                            <span>Modules</span>
-                            <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                            <div class="menu-toggler linked" data-toggle="collapse"
                                     data-target="#xs-modules-links"
-                            ></span>
+                            >
+                                <span class="fa fa-archive"></span>
+                                <span class="link-name">Modules</span>
+                                <span class="fa fa-angle-down"></span>
+                            </div>
                         </a>
-                        <ul class="links collapse in"
+                        <ul class="links collapse "
                                 id="xs-modules-links"
                             >
                                 <li class="link">
@@ -72,28 +80,64 @@
             
             
                     <li class="chapter">
-                        <div class="simple">
+                        <div class="simple menu-toggler" data-toggle="collapse"
+                                data-target="#xs-injectables-links"
+                            >
                             <span class="fa fa-long-arrow-down"></span>
                             <span>Injectables</span>
-                            <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
-                                    data-target="#xs-injectables-links"
-                                ></span>
+                            <span class="fa fa-angle-down"></span>
                         </div>
-                        <ul class="links collapse in"
+                        <ul class="links collapse "
                                 id="xs-injectables-links"
                             >
                                 <li class="link">
                                     <a href="./injectables/SegmentService.html" >SegmentService</a>
                                 </li>
+                                <li class="link">
+                                    <a href="./injectables/WindowWrapper.html" >WindowWrapper</a>
+                                </li>
                         </ul>
                     </li>
             
             
+                    <li class="chapter">
+                        <div class="simple menu-toggler" data-toggle="collapse"
+                                data-target="#xs-interfaces-links"
+                            >
+                            <span class="fa fa-info"></span>
+                            <span>Interfaces</span>
+                            <span class="fa fa-angle-down"></span>
+                        </div>
+                        <ul class="links collapse "
+                                id="xs-interfaces-links"
+                            >
+                                <li class="link">
+                                    <a href="./interfaces/SegmentConfig.html" >SegmentConfig</a>
+                                </li>
+                        </ul>
+                    </li>
             
             
                     <li class="chapter">
-                        <a data-type="chapter-link" href="./miscellaneous.html" ><span class="fa fa-cubes"></span>Miscellaneous</a>
+                        <div class="simple menu-toggler" data-toggle="collapse"
+                                data-target="#xs-miscellaneous-links"
+                            >
+                            <span class="fa fa-cubes"></span>
+                            <span>Miscellaneous</span>
+                            <span class="fa fa-angle-down"></span>
+                        </div>
+                        <ul class="links collapse "
+                                id="xs-miscellaneous-links"
+                            >
+                                <li class="link">
+                                  <a href="./miscellaneous/functions.html" data-type="entity-link" >Functions</a>
+                                </li>
+                                <li class="link">
+                                  <a href="./miscellaneous/variables.html" data-type="entity-link" >Variables</a>
+                                </li>
+                        </ul>
                     </li>
+            
             
                     <li class="chapter">
                         <a data-type="chapter-link" href="./coverage.html" ><span class="fa fa-tasks"></span>Documentation coverage</a>
@@ -126,15 +170,21 @@
                                <a data-type="chapter-link" href="./index.html"><span class="fa fa-home"></span>Getting started</a>
                                <ul class="links">
                                        <li class="link">
-                                           <a href="./index.html"  class="active" ><span class="fa fa-file-text-o"></span>README</a>
-                                       </li>
-                                       <li class="link">
-                                           <a  href="./overview.html" 
+                                           <a 
                                                
                                                 href="./overview.html" 
-                                               
+                                                href="./overview.html" 
                                                >
                                                <span class="fa fa-th"></span>Overview
+                                           </a>
+                                       </li>
+                                       <li class="link">
+                                         <a href="./index.html"  class="active" ><span class="fa fa-file-text-o"></span>README</a>
+                                       </li>
+                                       <li class="link">
+                                               <a href="./license.html"
+                                           >
+                                               <span class="fa fa-file-text-o"></span>LICENSE
                                            </a>
                                        </li>
                                </ul>
@@ -143,13 +193,15 @@
                    
                            <li class="chapter">
                                <a data-type="chapter-link" href="./modules.html" >
-                                   <span class="fa fa-archive"></span>
-                                   <span>Modules</span>
-                                   <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                   <div class="menu-toggler linked" data-toggle="collapse"
                                            data-target="#modules-links"
-                                   ></span>
+                                   >
+                                       <span class="fa fa-archive"></span>
+                                       <span class="link-name">Modules</span>
+                                       <span class="fa fa-angle-down"></span>
+                                   </div>
                                </a>
-                               <ul class="links collapse in"
+                               <ul class="links collapse "
                                        id="modules-links"
                    >
                                        <li class="link">
@@ -162,28 +214,64 @@
                    
                    
                            <li class="chapter">
-                               <div class="simple">
+                               <div class="simple menu-toggler" data-toggle="collapse"
+                                       data-target="#injectables-links"
+                   >
                                    <span class="fa fa-long-arrow-down"></span>
                                    <span>Injectables</span>
-                                   <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
-                                           data-target="#injectables-links"
-                   ></span>
+                                   <span class="fa fa-angle-down"></span>
                                </div>
-                               <ul class="links collapse in"
+                               <ul class="links collapse "
                                        id="injectables-links"
                    >
                                        <li class="link">
                                            <a href="./injectables/SegmentService.html" >SegmentService</a>
                                        </li>
+                                       <li class="link">
+                                           <a href="./injectables/WindowWrapper.html" >WindowWrapper</a>
+                                       </li>
                                </ul>
                            </li>
                    
                    
+                           <li class="chapter">
+                               <div class="simple menu-toggler" data-toggle="collapse"
+                                       data-target="#interfaces-links"
+                   >
+                                   <span class="fa fa-info"></span>
+                                   <span>Interfaces</span>
+                                   <span class="fa fa-angle-down"></span>
+                               </div>
+                               <ul class="links collapse "
+                                       id="interfaces-links"
+                   >
+                                       <li class="link">
+                                           <a href="./interfaces/SegmentConfig.html" >SegmentConfig</a>
+                                       </li>
+                               </ul>
+                           </li>
                    
                    
                            <li class="chapter">
-                               <a data-type="chapter-link" href="./miscellaneous.html" ><span class="fa fa-cubes"></span>Miscellaneous</a>
+                               <div class="simple menu-toggler" data-toggle="collapse"
+                                       data-target="#miscellaneous-links"
+                   >
+                                   <span class="fa fa-cubes"></span>
+                                   <span>Miscellaneous</span>
+                                   <span class="fa fa-angle-down"></span>
+                               </div>
+                               <ul class="links collapse "
+                                       id="miscellaneous-links"
+                   >
+                                       <li class="link">
+                                         <a href="./miscellaneous/functions.html" data-type="entity-link" >Functions</a>
+                                       </li>
+                                       <li class="link">
+                                         <a href="./miscellaneous/variables.html" data-type="entity-link" >Variables</a>
+                                       </li>
+                               </ul>
                            </li>
+                   
                    
                            <li class="chapter">
                                <a data-type="chapter-link" href="./coverage.html" ><span class="fa fa-tasks"></span>Documentation coverage</a>
@@ -194,72 +282,81 @@
                    
                    </nav>
                </div>
-               <div class="content readme">
+               <div class="content getting-started">
                    <div class="content-data">
+
 <h1 id="ngx-segment-analytics">ngx-segment-analytics</h1>
+<p><a href="https://travis-ci.org/opendecide/ngx-segment-analytics"><img src="https://travis-ci.org/opendecide/ngx-segment-analytics.svg?branch=master" alt="Build Status" class="img-responsive"></a>
+<a href="https://github.com/opendecide/ngx-segment-analytics"><img src="https://img.shields.io/github/downloads/opendecide/ngx-segment-analytics/total.svg" alt="GitHub Downloads All Releases" class="img-responsive"></a>
+<a href="https://www.npmjs.com/package/ngx-segment-analytics"><img src="https://img.shields.io/npm/dw/ngx-segment-analytics.svg" alt="npm Downloads All Releases" class="img-responsive"></a>
+<a href="https://www.npmjs.com/package/ngx-segment-analytics"><img src="https://img.shields.io/npm/v/ngx-segment-analytics.svg" alt="npm Version" class="img-responsive"></a>
+<a href="https://www.npmjs.com/package/ngx-segment-analytics"><img src="https://img.shields.io/node/v/ngx-segment-analytics.svg" alt="node Version Required" class="img-responsive"></a></p>
 <p>This Angular module provides an API for Segment using the <code>analytics.js</code> official library.</p>
 <h2 id="installation">Installation</h2>
 <p>To install this library, run:</p>
 <pre class="line-numbers"><code class="language-bash">$ npm install --save ngx-segment-analytics</code></pre><h2 id="consuming-segment">Consuming Segment</h2>
 <p>Add the <code>SegmentModule</code> to your Angular <code>AppModule</code>:</p>
-<pre class="line-numbers"><code class="language-typescript">import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+<pre class="line-numbers"><code class="language-typescript">import { BrowserModule } from &#39;&#64;angular/platform-browser&#39;;
+import { NgModule } from &#39;&#64;angular/core&#39;;
 
-import { AppComponent } from './app.component';
+import { AppComponent } from &#39;./app.component&#39;;
 
 // Import the Segment module
-import { SegmentModule } from 'ngx-segment-analytics';
+import { SegmentModule } from &#39;ngx-segment-analytics&#39;;
 
-@NgModule({
+&#64;NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
     BrowserModule,
     // Segment Importation
-    SegmentModule.forRoot({ apiKey: 'YOUR_WRITE_APIKEY', debug: true })
+    SegmentModule.forRoot({ apiKey: &#39;YOUR_WRITE_APIKEY&#39;, debug: true })
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }</code></pre><p>You can use the <code>SegmentService</code> in any constructor as a injected service :</p>
-<pre class="line-numbers"><code class="language-typescript">import { Component, OnInit } from '@angular/core';
-import { SegmentService } from 'ngx-segment-analytics';
-@Component({
-    selector: 'hero',
-    templateUrl: './hero.component.html',
-    styleUrls: ['./hero.component.css']
+<pre class="line-numbers"><code class="language-typescript">import { Component, OnInit } from &#39;&#64;angular/core&#39;;
+import { SegmentService } from &#39;ngx-segment-analytics&#39;;
+&#64;Component({
+    selector: &#39;hero&#39;,
+    templateUrl: &#39;./hero.component.html&#39;,
+    styleUrls: [&#39;./hero.component.css&#39;]
 })
 export class HeroComponent implements OnInit {
 
     constructor(private segment: SegmentService) { }
 
     public ngOnInit() {
-        this.segment.track('load an hero')
-            .then(() => console.log("Event sended"));
+        this.segment.track(&#39;load an hero&#39;)
+            .then(() =&gt; console.log(&quot;Event sended&quot;));
     }
 
 }</code></pre><h2 id="api">API</h2>
 <p>This API is compatible with <code>analytics.js</code> but returns <code>Promises</code> instead of taking <code>callbacks</code> in parameters.</p>
-<pre class="line-numbers"><code class="language-typescript">identify(userId?: string, traits?: any, options?: any): Promise<SegmentService>;
-track(event: string, properties?: any, options?: any): Promise<SegmentService>;
-page(category?: string, name?: string, properties?: any, options?: any): Promise<SegmentService>;
-group(groupId: string, traits?: any): Promise<SegmentService>;
-alias(userId: string, previousId?: string, options?: any): Promise<SegmentService>;
-ready(): Promise<SegmentService>;
+<pre class="line-numbers"><code class="language-typescript">identify(userId?: string, traits?: any, options?: any): Promise&lt;SegmentService&gt;;
+track(event: string, properties?: any, options?: any): Promise&lt;SegmentService&gt;;
+page(category?: string, name?: string, properties?: any, options?: any): Promise&lt;SegmentService&gt;;
+group(groupId: string, traits?: any): Promise&lt;SegmentService&gt;;
+alias(userId: string, previousId?: string, options?: any): Promise&lt;SegmentService&gt;;
+ready(): Promise&lt;SegmentService&gt;;
 user(): any;
 id(): any;
 traits(): any;
 reset(): void;
 debug(enabled?: boolean): void;
-on(method: string, callback: (event?: string, properties?: any, options?: any) => any): void;
+on(method: string, callback: (event?: string, properties?: any, options?: any) =&gt; any): void;
 trackLink(elements: HTMLElement | HTMLElement[], event: string | Function, properties?: Object | Function): void;
 trackForm(forms: HTMLElement | HTMLElement[], event: string | Function, properties?: Object | Function): void;
 timeout(timeout: number): void;</code></pre><h2 id="development">Development</h2>
-<p>To generate all <code>*.js</code>, <code>*.d.ts</code> and <code>*.metadata.json</code> files:</p>
-<pre class="line-numbers"><code class="language-bash">$ npm run build</code></pre><p>To lint all <code>*.ts</code> files:</p>
-<pre class="line-numbers"><code class="language-bash">$ npm run lint</code></pre><h2 id="license">License</h2>
+<p>To lint all <code>*.ts</code> files:</p>
+<pre class="line-numbers"><code class="language-bash">$ npm run lint</code></pre><p>To generate all <code>*.js</code>, <code>*.d.ts</code> and <code>*.metadata.json</code> files:</p>
+<pre class="line-numbers"><code class="language-bash">$ npm run build</code></pre><p>To publish on npmjs registry :</p>
+<pre class="line-numbers"><code class="language-bash">$ npm publish dist</code></pre><h2 id="license">License</h2>
 <p>MIT ©2017 <a href="https://www.opendecide.com">OpenDecide</a></p>
+
+
 
 
 

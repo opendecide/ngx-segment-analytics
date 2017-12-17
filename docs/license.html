@@ -36,9 +36,6 @@
                         <a data-type="chapter-link" href="./index.html"><span class="fa fa-home"></span>Getting started</a>
                         <ul class="links">
                                 <li class="link">
-                                    <a href="./index.html" ><span class="fa fa-file-text-o"></span>README</a>
-                                </li>
-                                <li class="link">
                                     <a 
                                         
                                          href="./overview.html" 
@@ -47,19 +44,30 @@
                                         <span class="fa fa-th"></span>Overview
                                     </a>
                                 </li>
+                                <li class="link">
+                                  <a href="./index.html" ><span class="fa fa-file-text-o"></span>README</a>
+                                </li>
+                                <li class="link">
+                                        <a href="./license.html"
+                                    >
+                                        <span class="fa fa-file-text-o"></span>LICENSE
+                                    </a>
+                                </li>
                         </ul>
                     </li>
             
             
                     <li class="chapter">
                         <a data-type="chapter-link" href="./modules.html" >
-                            <span class="fa fa-archive"></span>
-                            <span>Modules</span>
-                            <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                            <div class="menu-toggler linked" data-toggle="collapse"
                                     data-target="#xs-modules-links"
-                            ></span>
+                            >
+                                <span class="fa fa-archive"></span>
+                                <span class="link-name">Modules</span>
+                                <span class="fa fa-angle-down"></span>
+                            </div>
                         </a>
-                        <ul class="links collapse in"
+                        <ul class="links collapse "
                                 id="xs-modules-links"
                             >
                                 <li class="link">
@@ -72,28 +80,64 @@
             
             
                     <li class="chapter">
-                        <div class="simple">
+                        <div class="simple menu-toggler" data-toggle="collapse"
+                                data-target="#xs-injectables-links"
+                            >
                             <span class="fa fa-long-arrow-down"></span>
                             <span>Injectables</span>
-                            <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
-                                    data-target="#xs-injectables-links"
-                                ></span>
+                            <span class="fa fa-angle-down"></span>
                         </div>
-                        <ul class="links collapse in"
+                        <ul class="links collapse "
                                 id="xs-injectables-links"
                             >
                                 <li class="link">
                                     <a href="./injectables/SegmentService.html" >SegmentService</a>
                                 </li>
+                                <li class="link">
+                                    <a href="./injectables/WindowWrapper.html" >WindowWrapper</a>
+                                </li>
                         </ul>
                     </li>
             
             
+                    <li class="chapter">
+                        <div class="simple menu-toggler" data-toggle="collapse"
+                                data-target="#xs-interfaces-links"
+                            >
+                            <span class="fa fa-info"></span>
+                            <span>Interfaces</span>
+                            <span class="fa fa-angle-down"></span>
+                        </div>
+                        <ul class="links collapse "
+                                id="xs-interfaces-links"
+                            >
+                                <li class="link">
+                                    <a href="./interfaces/SegmentConfig.html" >SegmentConfig</a>
+                                </li>
+                        </ul>
+                    </li>
             
             
                     <li class="chapter">
-                        <a data-type="chapter-link" href="./miscellaneous.html"  class="active" ><span class="fa fa-cubes"></span>Miscellaneous</a>
+                        <div class="simple menu-toggler" data-toggle="collapse"
+                                data-target="#xs-miscellaneous-links"
+                            >
+                            <span class="fa fa-cubes"></span>
+                            <span>Miscellaneous</span>
+                            <span class="fa fa-angle-down"></span>
+                        </div>
+                        <ul class="links collapse "
+                                id="xs-miscellaneous-links"
+                            >
+                                <li class="link">
+                                  <a href="./miscellaneous/functions.html" data-type="entity-link" >Functions</a>
+                                </li>
+                                <li class="link">
+                                  <a href="./miscellaneous/variables.html" data-type="entity-link" >Variables</a>
+                                </li>
+                        </ul>
                     </li>
+            
             
                     <li class="chapter">
                         <a data-type="chapter-link" href="./coverage.html" ><span class="fa fa-tasks"></span>Documentation coverage</a>
@@ -126,9 +170,6 @@
                                <a data-type="chapter-link" href="./index.html"><span class="fa fa-home"></span>Getting started</a>
                                <ul class="links">
                                        <li class="link">
-                                           <a href="./index.html" ><span class="fa fa-file-text-o"></span>README</a>
-                                       </li>
-                                       <li class="link">
                                            <a 
                                                
                                                 href="./overview.html" 
@@ -137,19 +178,30 @@
                                                <span class="fa fa-th"></span>Overview
                                            </a>
                                        </li>
+                                       <li class="link">
+                                         <a href="./index.html" ><span class="fa fa-file-text-o"></span>README</a>
+                                       </li>
+                                       <li class="link">
+                                               <a href="./license.html"
+                                           >
+                                               <span class="fa fa-file-text-o"></span>LICENSE
+                                           </a>
+                                       </li>
                                </ul>
                            </li>
                    
                    
                            <li class="chapter">
                                <a data-type="chapter-link" href="./modules.html" >
-                                   <span class="fa fa-archive"></span>
-                                   <span>Modules</span>
-                                   <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                   <div class="menu-toggler linked" data-toggle="collapse"
                                            data-target="#modules-links"
-                                   ></span>
+                                   >
+                                       <span class="fa fa-archive"></span>
+                                       <span class="link-name">Modules</span>
+                                       <span class="fa fa-angle-down"></span>
+                                   </div>
                                </a>
-                               <ul class="links collapse in"
+                               <ul class="links collapse "
                                        id="modules-links"
                    >
                                        <li class="link">
@@ -162,28 +214,64 @@
                    
                    
                            <li class="chapter">
-                               <div class="simple">
+                               <div class="simple menu-toggler" data-toggle="collapse"
+                                       data-target="#injectables-links"
+                   >
                                    <span class="fa fa-long-arrow-down"></span>
                                    <span>Injectables</span>
-                                   <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
-                                           data-target="#injectables-links"
-                   ></span>
+                                   <span class="fa fa-angle-down"></span>
                                </div>
-                               <ul class="links collapse in"
+                               <ul class="links collapse "
                                        id="injectables-links"
                    >
                                        <li class="link">
                                            <a href="./injectables/SegmentService.html" >SegmentService</a>
                                        </li>
+                                       <li class="link">
+                                           <a href="./injectables/WindowWrapper.html" >WindowWrapper</a>
+                                       </li>
                                </ul>
                            </li>
                    
                    
+                           <li class="chapter">
+                               <div class="simple menu-toggler" data-toggle="collapse"
+                                       data-target="#interfaces-links"
+                   >
+                                   <span class="fa fa-info"></span>
+                                   <span>Interfaces</span>
+                                   <span class="fa fa-angle-down"></span>
+                               </div>
+                               <ul class="links collapse "
+                                       id="interfaces-links"
+                   >
+                                       <li class="link">
+                                           <a href="./interfaces/SegmentConfig.html" >SegmentConfig</a>
+                                       </li>
+                               </ul>
+                           </li>
                    
                    
                            <li class="chapter">
-                               <a data-type="chapter-link" href="./miscellaneous.html"  class="active" ><span class="fa fa-cubes"></span>Miscellaneous</a>
+                               <div class="simple menu-toggler" data-toggle="collapse"
+                                       data-target="#miscellaneous-links"
+                   >
+                                   <span class="fa fa-cubes"></span>
+                                   <span>Miscellaneous</span>
+                                   <span class="fa fa-angle-down"></span>
+                               </div>
+                               <ul class="links collapse "
+                                       id="miscellaneous-links"
+                   >
+                                       <li class="link">
+                                         <a href="./miscellaneous/functions.html" data-type="entity-link" >Functions</a>
+                                       </li>
+                                       <li class="link">
+                                         <a href="./miscellaneous/variables.html" data-type="entity-link" >Variables</a>
+                                       </li>
+                               </ul>
                            </li>
+                   
                    
                            <li class="chapter">
                                <a data-type="chapter-link" href="./coverage.html" ><span class="fa fa-tasks"></span>Documentation coverage</a>
@@ -194,9 +282,26 @@
                    
                    </nav>
                </div>
-               <div class="content miscellaneous">
+               <div class="content getting-started">
                    <div class="content-data">
 
+<p>The MIT License (MIT)</p>
+<p>Copyright (c) 2017 OpenDecide</p>
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the &quot;Software&quot;), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:</p>
+<p>The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.</p>
+<p>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.</p>
 
 
 
@@ -205,29 +310,7 @@
 
 
 
-<ol class="breadcrumb">
-  <li>Miscellaneous</li>
-</ol>
 
-    <h2 id="inputs"><b>Variables</b></h2>
-        <h4><code>src/ngx-segment-analytics.module.ts</code></h4>
-        <section>
-                    <table class="table table-sm table-bordered">
-                    <tbody>
-                        <tr>
-                            <td class="col-md-4">
-                                <b> SEGMENT_CONFIG</b>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <code>SEGMENT_CONFIG:     <code></code>
-        </bcode>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-        </section>
 
 
 
