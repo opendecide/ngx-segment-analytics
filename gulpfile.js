@@ -45,16 +45,13 @@ gulp.task('inline-resources', function () {
  *    compiled modules to the /build folder.
  */
 gulp.task('ngc', function () {
-  return ngc({
-    project: `${tmpFolder}/tsconfig.es5.json`
-  })
-    .then((exitCode) => {
-      if (exitCode === 1) {
+  return ngc(['-p', `${tmpFolder}/tsconfig.es5.json`], (error) => {
+    if (error) {
         // This error is caught in the 'compile' task by the runSequence method callback
         // so that when ngc fails to compile, the whole compile process stops running
-        throw new Error('ngc compilation failed');
+        throw new Error('ngc compilation failed : ' + error);
       }
-    });
+  });
 });
 
 /**
@@ -66,7 +63,7 @@ gulp.task('rollup', function () {
   // transform the files here.
     .pipe(rollup({
       // any option supported by Rollup can be set here.
-      entry: `${buildFolder}/index.js`,
+      input: `${buildFolder}/index.js`,
       external: [
         '@angular/core',
         '@angular/common'

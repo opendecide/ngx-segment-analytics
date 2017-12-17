@@ -21,8 +21,8 @@
   "module": "ngx-segment-analytics.js",
   "typings": "ngx-segment-analytics.d.ts",
   "peerDependencies": {
-    "@angular/core": "^4.0.0",
-    "@angular/common": "^4.0.0",
+    "@angular/core": "^4.0.0 || ^5.0.0",
+    "@angular/common": "^4.0.0 || ^5.0.0",
     "rxjs": "^5.1.0",
     "zone.js": "^0.8.4"
   },

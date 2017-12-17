@@ -3,6 +3,7 @@ import { DOCUMENT } from '@angular/common';
 import { SEGMENT_CONFIG, WindowWrapper } from './ngx-segment-analytics.module';
 import { SegmentConfig } from './ngx-segment-analytics.config';
 
+/** @dynamic */
 @Injectable()
 export class SegmentService {
 
