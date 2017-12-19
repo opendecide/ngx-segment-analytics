@@ -1,5 +1,7 @@
 # ngx-segment-analytics
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/opendecide/ngx-segment-analytics.svg)](https://greenkeeper.io/)
+
 [![Build Status](https://travis-ci.org/opendecide/ngx-segment-analytics.svg?branch=master)](https://travis-ci.org/opendecide/ngx-segment-analytics)
 [![GitHub Downloads All Releases](https://img.shields.io/github/downloads/opendecide/ngx-segment-analytics/total.svg)](https://github.com/opendecide/ngx-segment-analytics)
 [![npm Downloads All Releases](https://img.shields.io/npm/dw/ngx-segment-analytics.svg)](https://www.npmjs.com/package/ngx-segment-analytics)
