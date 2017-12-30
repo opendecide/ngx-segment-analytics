@@ -53,7 +53,7 @@
     "karma-jasmine-html-reporter": "^0.2.2",
     "node-watch": "^0.5.5",
     "protractor": "~5.2.2",
-    "rollup": "^0.52.2",
+    "rollup": "^0.53.0",
     "run-sequence": "^2.2.0",
     "rxjs": "^5.5.5",
     "ts-node": "~4.1.0",
