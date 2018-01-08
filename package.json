@@ -29,12 +29,12 @@
     "url": "https://github.com/opendecide/ngx-segment-analytics/issues"
   },
   "devDependencies": {
-    "@angular/common": "^5.1.1",
-    "@angular/compiler": "^5.1.1",
-    "@angular/compiler-cli": "^5.1.1",
-    "@angular/core": "^5.1.1",
-    "@angular/platform-browser": "^5.1.1",
-    "@angular/platform-browser-dynamic": "^5.1.1",
+    "@angular/common": "^4.0.0",
+    "@angular/compiler": "^4.0.0",
+    "@angular/compiler-cli": "^4.0.0",
+    "@angular/core": "^4.0.0",
+    "@angular/platform-browser": "^4.0.0",
+    "@angular/platform-browser-dynamic": "^4.0.0",
     "@compodoc/compodoc": "^1.0.5",
     "@types/jasmine": "2.8.3",
     "@types/node": "~8.5.1",
