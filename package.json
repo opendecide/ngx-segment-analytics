@@ -34,7 +34,7 @@
     "@angular/compiler-cli": "^4.0.0",
     "@angular/core": "^4.0.0",
     "@angular/platform-browser": "^4.0.0",
-    "@angular/platform-browser-dynamic": "^4.0.0",
+    "@angular/platform-browser-dynamic": "^5.2.1",
     "@compodoc/compodoc": "^1.0.5",
     "@types/jasmine": "2.8.4",
     "@types/node": "~9.3.0",
