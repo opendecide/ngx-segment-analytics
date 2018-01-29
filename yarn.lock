@@ -92,9 +92,9 @@
     fs-extra "^4.0.1"
     viz.js "^1.8.0"
 
-"@types/jasmine@2.8.5":
-  version "2.8.5"
-  resolved "https://registry.yarnpkg.com/@types/jasmine/-/jasmine-2.8.5.tgz#96e58872583fa80c7ea0dd29024b180d5e133678"
+"@types/jasmine@2.8.6":
+  version "2.8.6"
+  resolved "https://registry.yarnpkg.com/@types/jasmine/-/jasmine-2.8.6.tgz#14445b6a1613cf4e05dd61c3c3256d0e95c0421e"
 
 "@types/node@*":
   version "9.3.0"
