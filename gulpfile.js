@@ -67,11 +67,13 @@ gulp.task('rollup', function () {
     .pipe(rollup({
       // any option supported by Rollup can be set here.
       input: `${buildFolder}/index.js`,
+      output: {
+        format: 'es',
+      },
       external: [
         '@angular/core',
         '@angular/common'
-      ],
-      format: 'es'
+      ]
     }))
     .pipe(gulp.dest(distFolder));
 });
