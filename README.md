@@ -6,8 +6,11 @@
 [![npm Downloads All Releases](https://img.shields.io/npm/dw/ngx-segment-analytics.svg)](https://www.npmjs.com/package/ngx-segment-analytics)
 [![npm Version](https://img.shields.io/npm/v/ngx-segment-analytics.svg)](https://www.npmjs.com/package/ngx-segment-analytics)
 [![node Version Required](https://img.shields.io/node/v/ngx-segment-analytics.svg)](https://www.npmjs.com/package/ngx-segment-analytics)
+[![Angular Universal Compatible](https://img.shields.io/badge/angular-universal-brightgreen.svg)](https://universal.angular.io/)
 
 This Angular module provides an API for Segment using the `analytics.js` official library.
+
+Compatible with Angular AOT and Universal.
 
 ## Installation
 
@@ -63,7 +66,7 @@ export class HeroComponent implements OnInit {
         this.segment.track('load an hero')
             .then(() => console.log("Event sended"));
     }
-    
+
 }
 ```
 
