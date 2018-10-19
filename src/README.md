@@ -75,6 +75,7 @@ A full documentation is available [here](https://opendecide.github.io/ngx-segmen
 This API is compatible with `analytics.js` but returns `Promises` instead of taking `callbacks` in parameters.
 
 ```typescript
+get plugins: {[pluginName :string]: SegmentPlugin};
 identify(userId?: string, traits?: any, options?: any): Promise<SegmentService>;
 track(event: string, properties?: any, options?: any): Promise<SegmentService>;
 page(category?: string, name?: string, properties?: any, options?: any): Promise<SegmentService>;
