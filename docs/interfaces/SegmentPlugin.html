@@ -1,0 +1,441 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>ngx-segment-analytics</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">ngx-segment-analytics</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search">
+</div>
+            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content interface">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li>Interfaces</li>
+  <li>SegmentPlugin</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/ngx-segment-analytics.service.ts</code>
+        </p>
+
+
+
+
+
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Inject, Injectable} from &#x27;@angular/core&#x27;;
+import {DOCUMENT} from &#x27;@angular/common&#x27;;
+import {SEGMENT_CONFIG, WindowWrapper} from &#x27;./ngx-segment-analytics.module&#x27;;
+import {SegmentConfig} from &#x27;./ngx-segment-analytics.config&#x27;;
+
+export interface SegmentPlugin {
+    // Video Plugins
+    new(player: any, accessToken: string): any;
+
+    // Others plugins
+    new(): any;
+}
+
+/** @dynamic */
+@Injectable()
+export class SegmentService {
+
+    /**
+     * @param w Browser window
+     * @param doc Browser DOM
+     * @param config Segment configuration
+     */
+    constructor(
+        @Inject(WindowWrapper) private w: WindowWrapper,
+        @Inject(DOCUMENT) private doc: Document,
+        @Inject(SEGMENT_CONFIG) private config: SegmentConfig
+    ) {
+        if (
+            typeof this.w.analytics &#x3D;&#x3D;&#x3D; &#x27;undefined&#x27;
+            || typeof this.w.analytics.initialize &#x3D;&#x3D;&#x3D; &#x27;undefined&#x27;
+            || this.w.analytics.initialize &#x3D;&#x3D;&#x3D; false
+        ) {
+            if (this.config.debug) {
+                console.log(&#x27;Segment initialization ...&#x27;);
+            }
+
+            this.w.analytics &#x3D; [];
+
+            this.w.analytics.methods &#x3D; [
+                &#x27;trackSubmit&#x27;,
+                &#x27;trackClick&#x27;,
+                &#x27;trackLink&#x27;,
+                &#x27;trackForm&#x27;,
+                &#x27;pageview&#x27;,
+                &#x27;identify&#x27;,
+                &#x27;reset&#x27;,
+                &#x27;group&#x27;,
+                &#x27;track&#x27;,
+                &#x27;ready&#x27;,
+                &#x27;alias&#x27;,
+                &#x27;debug&#x27;,
+                &#x27;page&#x27;,
+                &#x27;once&#x27;,
+                &#x27;off&#x27;,
+                &#x27;on&#x27;
+            ];
+
+            this.w.analytics.factory &#x3D; (method: string) &#x3D;&gt; {
+                return (...args) &#x3D;&gt; {
+                    args.unshift(method);
+                    this.w.analytics.push(args);
+                    return this.w.analytics;
+                };
+            };
+
+            this.w.analytics.methods.forEach((method: string) &#x3D;&gt; {
+                this.w.analytics[method] &#x3D; this.w.analytics.factory(method);
+            });
+
+            this.w.analytics.load &#x3D; (key: string) &#x3D;&gt; {
+                const script &#x3D; this.doc.createElement(&#x27;script&#x27;);
+                script.type &#x3D; &#x27;text/javascript&#x27;;
+                script.async &#x3D; true;
+                script.src &#x3D; (&#x27;https:&#x27; &#x3D;&#x3D;&#x3D; this.doc.location.protocol
+                    ? &#x27;https://&#x27; : &#x27;http://&#x27;)
+                    + &#x27;cdn.segment.com/analytics.js/v1/&#x27;
+                    + key + &#x27;/analytics.min.js&#x27;;
+
+                const first &#x3D; this.doc.getElementsByTagName(&#x27;script&#x27;)[0];
+                first.parentNode.insertBefore(script, first);
+            };
+
+            this.w.analytics.SNIPPET_VERSION &#x3D; &#x27;4.0.0&#x27;;
+            this.w.analytics.load(this.config.apiKey);
+            if (this.config.debug) {
+                console.log(&#x27;Segment initialized&#x27;);
+            }
+            this.debug(this.config.debug);
+        }
+    }
+
+    /**
+     * The identify method is how you associate your users and their actions to a recognizable userId and traits.
+     *
+     * @param userId The database ID for the user.
+     * @param traits A dictionary of traits you know about the user, like their email or name
+     * @param options A dictionary of options.
+     *
+     * @returns
+     */
+    public identify(userId?: string, traits?: any, options?: any): Promise&lt;SegmentService&gt; {
+        return new Promise((resolve) &#x3D;&gt; {
+            this.w.analytics.identify(userId, traits, options, resolve(this));
+        });
+    }
+
+    /**
+     * The track method lets you record any actions your users perform.
+     *
+     * @param event The name of the event you’re tracking.
+     * @param properties A dictionary of properties for the event.
+     * @param options A dictionary of options.
+     *
+     * @returns
+     */
+    public track(event: string, properties?: any, options?: any): Promise&lt;SegmentService&gt; {
+        return new Promise((resolve) &#x3D;&gt; {
+            this.w.analytics.track(event, properties, options, resolve(this));
+        });
+    }
+
+    /**
+     * The page method lets you record page views on your website, along with optional extra information about the page being viewed.
+     *
+     * @param name The name of the page.
+     * @param properties A dictionary of properties of the page.
+     * @param options A dictionary of options.
+     *
+     * @returns
+     */
+    public page(name?: string, properties?: any, options?: any): Promise&lt;SegmentService&gt;;
+
+    /**
+     * The page method lets you record page views on your website, along with optional extra information about the page being viewed.
+     *
+     * @param category The category of the page.
+     * @param name The name of the page.
+     * @param properties A dictionary of properties of the page.
+     * @param options A dictionary of options.
+     *
+     * @returns
+     */
+
+    public page(category: string, name: string, properties?: any, options?: any): Promise&lt;SegmentService&gt;;
+    /**
+     * The page method lets you record page views on your website, along with optional extra information about the page being viewed.
+     *
+     * @param category The category of the page.
+     * @param name The name of the page.
+     * @param properties A dictionary of properties of the page.
+     * @param options A dictionary of options.
+     *
+     * @returns
+     */
+    public page(
+        category?: string,
+        name?: string,
+        properties?: any,
+        options?: any
+    ): Promise&lt;SegmentService&gt; {
+        return new Promise((resolve) &#x3D;&gt; {
+            this.w.analytics.page(category, name, properties, options, resolve(this));
+        });
+    }
+
+    /**
+     * The group method associates an identified user with a company, organization, project, workspace, team, tribe, platoon,
+     * assemblage, cluster, troop, gang, party, society or any other name you came up with for the same concept.
+     *
+     * @param groupId The Group ID to associate with the current user.
+     * @param traits A dictionary of traits for the group.
+     *
+     * @returns
+     */
+    public group(groupId: string, traits?: any): Promise&lt;SegmentService&gt; {
+        return new Promise((resolve) &#x3D;&gt; {
+            this.w.analytics.group(groupId, traits, resolve(this));
+        });
+    }
+
+    /**
+     * The alias method combines two previously unassociated user identities.
+     *
+     * @param userId The new user ID you want to associate with the user.
+     * @param previousId The previous ID that the user was recognized by. This defaults to the currently identified user’s ID.
+     * @param options A dictionary of options.
+     *
+     * @returns
+     */
+    public alias(userId: string, previousId?: string, options?: any): Promise&lt;SegmentService&gt; {
+        return new Promise((resolve) &#x3D;&gt; {
+            this.w.analytics.alias(userId, previousId, options, resolve(this));
+        });
+    }
+
+    /**
+     * The ready method allows you execute a promise that will be called as soon as all of your enabled destinations have loaded
+     * and analytics.js has completed initialization.
+     *
+     * @returns
+     */
+    public ready(): Promise&lt;SegmentService&gt; {
+        return new Promise((resolve) &#x3D;&gt; {
+            this.w.analytics.ready(resolve(this));
+        });
+    }
+
+    /**
+     * Return informations about the currently identified user
+     *
+     * @returns Informations about the currently identified user
+     */
+    public user(): any {
+        return this.w.analytics.user();
+    }
+
+    /**
+     * Return identifier about the currently identified user
+     *
+     * @returns Identifier about the currently identified user
+     */
+    public id(): string | null {
+        return this.w.analytics.id();
+    }
+
+    /**
+     * Return traits about the currently identified user
+     *
+     * @returns Traits about the currently identified user
+     */
+    public traits(): any {
+        return this.w.analytics.traits();
+    }
+
+    /**
+     * Reset the id, including anonymousId, and clear traits for the currently identified user and group.
+     */
+    public reset(): void {
+        this.w.analytics.reset();
+    }
+
+    /**
+     * Turn on/off debug mode, logging helpful messages to the console.
+     *
+     * @param enabled Enable or not the debug mode
+     */
+    public debug(enabled?: boolean): void {
+        this.w.analytics.debug(enabled);
+    }
+
+    /**
+     * Set listeners for these events and run your own custom code.
+     *
+     * @param method Name of the method to listen for
+     * @param callback A function to execute after each the emitted method
+     */
+    public on(
+        method: string,
+        callback: (event?: string, properties?: any, options?: any) &#x3D;&gt; any
+    ): void {
+        this.w.analytics.on(method, callback);
+    }
+
+    /**
+     * Attaches the &#x60;track&#x60; call as a handler to a link
+     *
+     * @param elements DOM element or an array of DOM elements to be bound with track method.
+     * @param event The name of the event, passed to the &#x60;track&#x60; method or a function that returns a string to be used
+     *              as the name of the track event.
+     * @param properties A dictionary of properties to pass with the &#x60;track&#x60; method.
+     */
+    public trackLink(
+        elements: HTMLElement | HTMLElement[],
+        event: string | Function,
+        properties?: any | Function
+    ): void {
+        this.w.analytics.trackLink(elements, event, properties);
+    }
+
+    /**
+     * Binds a &#x60;track&#x60; call to a form submission.
+     *
+     * @param forms The form element to track or an array of form
+     * @param event The name of the event, passed to the &#x60;track&#x60; method.
+     * @param properties A dictionary of properties to pass with the &#x60;track&#x60; method.
+     */
+    public trackForm(
+        forms: HTMLElement | HTMLElement[],
+        event: string | Function,
+        properties?: any | Function
+    ): void {
+        this.w.analytics.trackForm(forms, event, properties);
+    }
+
+    /**
+     * Set the length (in milliseconds) of the callbacks and helper functions
+     *
+     * @param timeout Number of milliseconds
+     */
+    public timeout(timeout: number): void {
+        this.w.analytics.timeout(timeout);
+    }
+
+    public get plugins(): { [pluginName: string]: SegmentPlugin } {
+        return this.w.analytics.plugins;
+    }
+}
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
+            var COMPODOC_CURRENT_PAGE_URL = 'SegmentPlugin.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <script src="../js/menu-wc.js"></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
