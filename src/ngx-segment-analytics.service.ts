@@ -1,7 +1,15 @@
-import { Inject, Injectable } from '@angular/core';
-import { DOCUMENT } from '@angular/common';
-import { SEGMENT_CONFIG, WindowWrapper } from './ngx-segment-analytics.module';
-import { SegmentConfig } from './ngx-segment-analytics.config';
+import {Inject, Injectable} from '@angular/core';
+import {DOCUMENT} from '@angular/common';
+import {SEGMENT_CONFIG, WindowWrapper} from './ngx-segment-analytics.module';
+import {SegmentConfig} from './ngx-segment-analytics.config';
+
+export interface SegmentPlugin {
+    // Video Plugins
+    new(player: any, accessToken: string): any;
+
+    // Others plugins
+    new(): any;
+}
 
 /** @dynamic */
 @Injectable()
@@ -64,7 +72,7 @@ export class SegmentService {
                 script.type = 'text/javascript';
                 script.async = true;
                 script.src = ('https:' === this.doc.location.protocol
-                        ? 'https://' : 'http://')
+                    ? 'https://' : 'http://')
                     + 'cdn.segment.com/analytics.js/v1/'
                     + key + '/analytics.min.js';
 
@@ -211,7 +219,7 @@ export class SegmentService {
      *
      * @returns Identifier about the currently identified user
      */
-    public id(): string|null {
+    public id(): string | null {
         return this.w.analytics.id();
     }
 
@@ -291,5 +299,9 @@ export class SegmentService {
      */
     public timeout(timeout: number): void {
         this.w.analytics.timeout(timeout);
+    }
+
+    public get plugins(): { [pluginName: string]: SegmentPlugin } {
+        return this.w.analytics.plugins;
     }
 }
