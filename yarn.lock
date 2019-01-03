@@ -2920,9 +2920,10 @@ node-uuid@^1.4.7:
   version "1.4.8"
   resolved "https://registry.yarnpkg.com/node-uuid/-/node-uuid-1.4.8.tgz#b040eb0923968afabf8d32fb1f17f1167fdab907"
 
-node-watch@^0.5.5:
-  version "0.5.8"
-  resolved "https://registry.yarnpkg.com/node-watch/-/node-watch-0.5.8.tgz#208d10f93afe2f24b3701c254f54c7552f90c905"
+node-watch@^0.6.0:
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/node-watch/-/node-watch-0.6.0.tgz#ab0703b60cd270783698e57a428faa0010ed8fd0"
+  integrity sha512-XAgTL05z75ptd7JSVejH1a2Dm1zmXYhuDr9l230Qk6Z7/7GPcnAs/UyJJ4ggsXSvWil8iOzwQLW0zuGUvHpG8g==
 
 nopt@^4.0.1:
   version "4.0.1"
