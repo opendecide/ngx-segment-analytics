@@ -18,10 +18,7 @@
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
-                <div id="book-search-input" role="search">
-    <input type="text" placeholder="Type to search">
-</div>
-            <compodoc-menu></compodoc-menu>
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
         </div>
 
         <div class="container-fluid main">
@@ -88,7 +85,8 @@ export class HeroComponent implements OnInit {
 <p>A full documentation is available <a href="https://opendecide.github.io/ngx-segment-analytics/">here</a></p>
 <h2 id="api">API</h2>
 <p>This API is compatible with <code>analytics.js</code> but returns <code>Promises</code> instead of taking <code>callbacks</code> in parameters.</p>
-<div><pre class="line-numbers"><code class="language-typescript">identify(userId?: string, traits?: any, options?: any): Promise&lt;SegmentService&gt;;
+<div><pre class="line-numbers"><code class="language-typescript">get plugins: {[pluginName :string]: SegmentPlugin};
+identify(userId?: string, traits?: any, options?: any): Promise&lt;SegmentService&gt;;
 track(event: string, properties?: any, options?: any): Promise&lt;SegmentService&gt;;
 page(category?: string, name?: string, properties?: any, options?: any): Promise&lt;SegmentService&gt;;
 group(groupId: string, traits?: any): Promise&lt;SegmentService&gt;;
@@ -148,7 +146,9 @@ timeout(timeout: number): void;</code></pre></div><h2 id="development">Developme
 
        <script src="./js/libs/custom-elements.min.js"></script>
        <script src="./js/libs/lit-html.js"></script>
-       <script src="./js/menu-wc.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="./js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="./js/menu-wc.js" defer></script>
 
        <script src="./js/libs/bootstrap-native.js"></script>
 

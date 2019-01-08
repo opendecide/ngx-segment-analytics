@@ -18,10 +18,7 @@
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
-                <div id="book-search-input" role="search">
-    <input type="text" placeholder="Type to search">
-</div>
-            <compodoc-menu></compodoc-menu>
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
         </div>
 
         <div class="container-fluid main">
@@ -149,10 +146,7 @@ export class SegmentService {
                 const script &#x3D; this.doc.createElement(&#x27;script&#x27;);
                 script.type &#x3D; &#x27;text/javascript&#x27;;
                 script.async &#x3D; true;
-                script.src &#x3D; (&#x27;https:&#x27; &#x3D;&#x3D;&#x3D; this.doc.location.protocol
-                    ? &#x27;https://&#x27; : &#x27;http://&#x27;)
-                    + &#x27;cdn.segment.com/analytics.js/v1/&#x27;
-                    + key + &#x27;/analytics.min.js&#x27;;
+                script.src &#x3D; &#x27;https://cdn.segment.com/analytics.js/v1/&#x27; + key + &#x27;/analytics.min.js&#x27;;
 
                 const first &#x3D; this.doc.getElementsByTagName(&#x27;script&#x27;)[0];
                 first.parentNode.insertBefore(script, first);
@@ -414,7 +408,9 @@ export class SegmentService {
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <script src="../js/menu-wc.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 
