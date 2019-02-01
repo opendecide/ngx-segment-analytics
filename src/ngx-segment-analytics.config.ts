@@ -3,7 +3,9 @@
  */
 export interface SegmentConfig {
     /** API Key for Segment.io */
-    apiKey: string;
+    apiKey?: string;
     /** Debug mode status */
     debug?: boolean;
+    /** Load Segment configuration on initialization */
+    loadOnInitialization?: boolean;
 }

@@ -25,16 +25,27 @@ export class SegmentService {
         @Inject(DOCUMENT) private doc: Document,
         @Inject(SEGMENT_CONFIG) private config: SegmentConfig
     ) {
+        if (this.config.loadOnInitialization && (typeof this.config.apiKey === 'undefined' || this.config.apiKey === '')) {
+            console.error('The API Key cannot be an empty string if Segment must be loaded on initialization.');
+            return;
+        }
+
         if (
             typeof this.w.analytics === 'undefined'
             || typeof this.w.analytics.initialize === 'undefined'
             || this.w.analytics.initialize === false
         ) {
+            if (this.w.analytics.invoked === true) {
+                console.error('Segment snippet included twice.');
+                return;
+            }
+
             if (this.config.debug) {
                 console.log('Segment initialization ...');
             }
 
             this.w.analytics = [];
+            this.w.analytics.invoked = true;
 
             this.w.analytics.methods = [
                 'trackSubmit',
@@ -52,7 +63,7 @@ export class SegmentService {
                 'page',
                 'once',
                 'off',
-                'on'
+                'on',
             ];
 
             this.w.analytics.factory = (method: string) => {
@@ -67,7 +78,7 @@ export class SegmentService {
                 this.w.analytics[method] = this.w.analytics.factory(method);
             });
 
-            this.w.analytics.load = (key: string) => {
+            this.w.analytics.load = (key: string, options: { integrations: { [key: string]: boolean } }) => {
                 const script = this.doc.createElement('script');
                 script.type = 'text/javascript';
                 script.async = true;
@@ -75,15 +86,28 @@ export class SegmentService {
 
                 const first = this.doc.getElementsByTagName('script')[0];
                 first.parentNode.insertBefore(script, first);
+                this.w.analytics._loadOptions = options;
             };
 
-            this.w.analytics.SNIPPET_VERSION = '4.0.0';
-            this.w.analytics.load(this.config.apiKey);
-            if (this.config.debug) {
-                console.log('Segment initialized');
+            this.w.analytics.SNIPPET_VERSION = '4.1.0';
+            if (this.config.loadOnInitialization) {
+                this.load(this.config.apiKey);
             }
-            this.debug(this.config.debug);
         }
+    }
+
+    /**
+     * Load Segment configuration.
+     *
+     * @param apiKey Write API Key
+     * @param options Optional parameters
+     */
+    public load(apiKey: string, options?: any): void {
+        this.w.analytics.load(apiKey, options);
+        if (this.config.debug) {
+            console.log('Segment initialized');
+        }
+        this.debug(this.config.debug);
     }
 
     /**
@@ -137,8 +161,8 @@ export class SegmentService {
      *
      * @returns
      */
-
     public page(category: string, name: string, properties?: any, options?: any): Promise<SegmentService>;
+
     /**
      * The page method lets you record page views on your website, along with optional extra information about the page being viewed.
      *
@@ -149,12 +173,7 @@ export class SegmentService {
      *
      * @returns
      */
-    public page(
-        category?: string,
-        name?: string,
-        properties?: any,
-        options?: any
-    ): Promise<SegmentService> {
+    public page(category?: string, name?: string, properties?: any, options?: any): Promise<SegmentService> {
         return new Promise((resolve) => {
             this.w.analytics.page(category, name, properties, options, resolve(this));
         });
@@ -251,10 +270,7 @@ export class SegmentService {
      * @param method Name of the method to listen for
      * @param callback A function to execute after each the emitted method
      */
-    public on(
-        method: string,
-        callback: (event?: string, properties?: any, options?: any) => any
-    ): void {
+    public on(method: string, callback: (event?: string, properties?: any, options?: any) => any): void {
         this.w.analytics.on(method, callback);
     }
 
@@ -266,11 +282,7 @@ export class SegmentService {
      *              as the name of the track event.
      * @param properties A dictionary of properties to pass with the `track` method.
      */
-    public trackLink(
-        elements: HTMLElement | HTMLElement[],
-        event: string | Function,
-        properties?: any | Function
-    ): void {
+    public trackLink(elements: HTMLElement | HTMLElement[], event: string | Function, properties?: any | Function): void {
         this.w.analytics.trackLink(elements, event, properties);
     }
 
@@ -281,11 +293,7 @@ export class SegmentService {
      * @param event The name of the event, passed to the `track` method.
      * @param properties A dictionary of properties to pass with the `track` method.
      */
-    public trackForm(
-        forms: HTMLElement | HTMLElement[],
-        event: string | Function,
-        properties?: any | Function
-    ): void {
+    public trackForm(forms: HTMLElement | HTMLElement[], event: string | Function, properties?: any | Function): void {
         this.w.analytics.trackForm(forms, event, properties);
     }
 

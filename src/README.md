@@ -36,7 +36,7 @@ import { SegmentModule } from 'ngx-segment-analytics';
   imports: [
     BrowserModule,
     // Segment Importation
-    SegmentModule.forRoot({ apiKey: 'YOUR_WRITE_APIKEY', debug: true })
+    SegmentModule.forRoot({ apiKey: 'YOUR_WRITE_APIKEY', debug: true, loadOnInitialization: true })
   ],
   providers: [],
   bootstrap: [AppComponent]
@@ -75,6 +75,7 @@ A full documentation is available [here](https://opendecide.github.io/ngx-segmen
 This API is compatible with `analytics.js` but returns `Promises` instead of taking `callbacks` in parameters.
 
 ```typescript
+load(apiKey: string, options: any);
 get plugins: {[pluginName :string]: SegmentPlugin};
 identify(userId?: string, traits?: any, options?: any): Promise<SegmentService>;
 track(event: string, properties?: any, options?: any): Promise<SegmentService>;
