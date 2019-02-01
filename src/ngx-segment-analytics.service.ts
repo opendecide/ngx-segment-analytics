@@ -25,6 +25,10 @@ export class SegmentService {
         @Inject(DOCUMENT) private doc: Document,
         @Inject(SEGMENT_CONFIG) private config: SegmentConfig
     ) {
+        if (typeof this.config.loadOnInitialization !== 'boolean') {
+            this.config.loadOnInitialization = true; // Compatibility < 1.2.5
+        }
+
         if (this.config.loadOnInitialization && (typeof this.config.apiKey === 'undefined' || this.config.apiKey === '')) {
             console.error('The API Key cannot be an empty string if Segment must be loaded on initialization.');
             return;
