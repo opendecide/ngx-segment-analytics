@@ -59,7 +59,7 @@ import { SegmentModule } from &#39;ngx-segment-analytics&#39;;
   imports: [
     BrowserModule,
     // Segment Importation
-    SegmentModule.forRoot({ apiKey: &#39;YOUR_WRITE_APIKEY&#39;, debug: true })
+    SegmentModule.forRoot({ apiKey: &#39;YOUR_WRITE_APIKEY&#39;, debug: true, loadOnInitialization: true })
   ],
   providers: [],
   bootstrap: [AppComponent]
@@ -85,7 +85,8 @@ export class HeroComponent implements OnInit {
 <p>A full documentation is available <a href="https://opendecide.github.io/ngx-segment-analytics/">here</a></p>
 <h2 id="api">API</h2>
 <p>This API is compatible with <code>analytics.js</code> but returns <code>Promises</code> instead of taking <code>callbacks</code> in parameters.</p>
-<div><pre class="line-numbers"><code class="language-typescript">get plugins: {[pluginName :string]: SegmentPlugin};
+<div><pre class="line-numbers"><code class="language-typescript">load(apiKey: string, options: any);
+get plugins: {[pluginName :string]: SegmentPlugin};
 identify(userId?: string, traits?: any, options?: any): Promise&lt;SegmentService&gt;;
 track(event: string, properties?: any, options?: any): Promise&lt;SegmentService&gt;;
 page(category?: string, name?: string, properties?: any, options?: any): Promise&lt;SegmentService&gt;;
