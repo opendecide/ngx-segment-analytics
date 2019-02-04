@@ -39,7 +39,7 @@ export class SegmentService {
             || typeof this.w.analytics.initialize === 'undefined'
             || this.w.analytics.initialize === false
         ) {
-            if (this.w.analytics.invoked === true) {
+            if (typeof this.w.analytics !== 'undefined' && this.w.analytics.invoked === true) {
                 console.error('Segment snippet included twice.');
                 return;
             }

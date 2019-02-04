@@ -114,7 +114,7 @@ export class SegmentService {
             || typeof this.w.analytics.initialize &#x3D;&#x3D;&#x3D; &#x27;undefined&#x27;
             || this.w.analytics.initialize &#x3D;&#x3D;&#x3D; false
         ) {
-            if (this.w.analytics.invoked &#x3D;&#x3D;&#x3D; true) {
+            if (typeof this.w.analytics !&#x3D;&#x3D; &#x27;undefined&#x27; &amp;&amp; this.w.analytics.invoked &#x3D;&#x3D;&#x3D; true) {
                 console.error(&#x27;Segment snippet included twice.&#x27;);
                 return;
             }
