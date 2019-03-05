@@ -42,17 +42,17 @@
 <p>Compatible with Angular AOT and Universal.</p>
 <h2 id="installation">Installation</h2>
 <p>To install this library, run:</p>
-<div><pre class="line-numbers"><code class="language-bash">$ npm install --save ngx-segment-analytics</code></pre></div><h2 id="consuming-segment">Consuming Segment</h2>
+<p><code>bash
+$ npm install --save ngx-segment-analytics</code></p>
+<h2 id="consuming-segment">Consuming Segment</h2>
 <p>Add the <code>SegmentModule</code> to your Angular <code>AppModule</code>:</p>
-<div><pre class="line-numbers"><code class="language-typescript">import { BrowserModule } from &#39;&#64;angular/platform-browser&#39;;
-import { NgModule } from &#39;&#64;angular/core&#39;;
-
-import { AppComponent } from &#39;./app.component&#39;;
-
-// Import the Segment module
-import { SegmentModule } from &#39;ngx-segment-analytics&#39;;
-
-&#64;NgModule({
+<p>```typescript
+import { BrowserModule } from &#39;@angular/platform-browser&#39;;
+import { NgModule } from &#39;@angular/core&#39;;</p>
+<p>import { AppComponent } from &#39;./app.component&#39;;</p>
+<p>// Import the Segment module
+import { SegmentModule } from &#39;ngx-segment-analytics&#39;;</p>
+<p>@NgModule({
   declarations: [
     AppComponent
   ],
@@ -64,28 +64,31 @@ import { SegmentModule } from &#39;ngx-segment-analytics&#39;;
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }</code></pre></div><p>You can use the <code>SegmentService</code> in any constructor as a injected service :</p>
-<div><pre class="line-numbers"><code class="language-typescript">import { Component, OnInit } from &#39;&#64;angular/core&#39;;
+export class AppModule { }
+```</p>
+<p>You can use the <code>SegmentService</code> in any constructor as a injected service :</p>
+<p>```typescript
+import { Component, OnInit } from &#39;@angular/core&#39;;
 import { SegmentService } from &#39;ngx-segment-analytics&#39;;
-&#64;Component({
+@Component({
     selector: &#39;hero&#39;,
     templateUrl: &#39;./hero.component.html&#39;,
     styleUrls: [&#39;./hero.component.css&#39;]
 })
-export class HeroComponent implements OnInit {
+export class HeroComponent implements OnInit {</p>
+<div><pre class="line-numbers"><code class="language-none">constructor(private segment: SegmentService) { }
 
-    constructor(private segment: SegmentService) { }
-
-    public ngOnInit() {
-        this.segment.track(&#39;load an hero&#39;)
-            .then(() =&gt; console.log(&quot;Event sended&quot;));
-    }
-
-}</code></pre></div><h2 id="documentation">Documentation</h2>
+public ngOnInit() {
+    this.segment.track(&#39;load an hero&#39;)
+        .then(() =&gt; console.log(&quot;Event sended&quot;));
+}</code></pre></div><p>}
+```</p>
+<h2 id="documentation">Documentation</h2>
 <p>A full documentation is available <a href="https://opendecide.github.io/ngx-segment-analytics/">here</a></p>
 <h2 id="api">API</h2>
 <p>This API is compatible with <code>analytics.js</code> but returns <code>Promises</code> instead of taking <code>callbacks</code> in parameters.</p>
-<div><pre class="line-numbers"><code class="language-typescript">load(apiKey: string, options: any);
+<p><code>typescript
+load(apiKey: string, options: any);
 get plugins: {[pluginName :string]: SegmentPlugin};
 identify(userId?: string, traits?: any, options?: any): Promise&lt;SegmentService&gt;;
 track(event: string, properties?: any, options?: any): Promise&lt;SegmentService&gt;;
@@ -101,11 +104,18 @@ debug(enabled?: boolean): void;
 on(method: string, callback: (event?: string, properties?: any, options?: any) =&gt; any): void;
 trackLink(elements: HTMLElement | HTMLElement[], event: string | Function, properties?: Object | Function): void;
 trackForm(forms: HTMLElement | HTMLElement[], event: string | Function, properties?: Object | Function): void;
-timeout(timeout: number): void;</code></pre></div><h2 id="development">Development</h2>
+timeout(timeout: number): void;</code></p>
+<h2 id="development">Development</h2>
 <p>To lint all <code>*.ts</code> files:</p>
-<div><pre class="line-numbers"><code class="language-bash">$ npm run lint</code></pre></div><p>To generate all <code>*.js</code>, <code>*.d.ts</code> and <code>*.metadata.json</code> files:</p>
-<div><pre class="line-numbers"><code class="language-bash">$ npm run build</code></pre></div><p>To publish on npmjs registry :</p>
-<div><pre class="line-numbers"><code class="language-bash">$ npm publish dist</code></pre></div><h2 id="license">License</h2>
+<p><code>bash
+$ npm run lint</code></p>
+<p>To generate all <code>*.js</code>, <code>*.d.ts</code> and <code>*.metadata.json</code> files:</p>
+<p><code>bash
+$ npm run build</code></p>
+<p>To publish on npmjs registry :
+<code>bash
+$ npm publish dist</code></p>
+<h2 id="license">License</h2>
 <p>MIT ©2017 <a href="https://www.opendecide.com">OpenDecide</a></p>
 
 
