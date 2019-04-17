@@ -82,11 +82,13 @@ export class SegmentService {
                 this.w.analytics[method] = this.w.analytics.factory(method);
             });
 
+            const segmentHost: string = typeof this.config.segmentHost === 'string' ? this.config.segmentHost : 'cdn.segment.com';
+
             this.w.analytics.load = (key: string, options: { integrations: { [key: string]: boolean } }) => {
                 const script = this.doc.createElement('script');
                 script.type = 'text/javascript';
                 script.async = true;
-                script.src = 'https://cdn.segment.com/analytics.js/v1/' + key + '/analytics.min.js';
+                script.src = 'https://' + segmentHost + '/analytics.js/v1/' + key + '/analytics.min.js';
 
                 const first = this.doc.getElementsByTagName('script')[0];
                 first.parentNode.insertBefore(script, first);

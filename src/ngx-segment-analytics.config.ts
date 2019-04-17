@@ -8,4 +8,6 @@ export interface SegmentConfig {
     debug?: boolean;
     /** Load Segment configuration on initialization */
     loadOnInitialization?: boolean;
+    /** Segment Host if requests are proxied **/
+    segmentHost?: string;
 }
