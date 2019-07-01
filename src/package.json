@@ -1,6 +1,6 @@
 {
   "name": "ngx-segment-analytics",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "Segment Analytics for Angular",
   "repository": {
     "type": "git",
@@ -21,8 +21,8 @@
   "module": "ngx-segment-analytics.js",
   "typings": "ngx-segment-analytics.d.ts",
   "peerDependencies": {
-    "@angular/core": ">=4.0.0 < 8.0.0",
-    "@angular/common": ">=4.0.0 < 8.0.0"
+    "@angular/core": ">=4.0.0 < 9.0.0",
+    "@angular/common": ">=4.0.0 < 9.0.0"
   },
   "dependencies": {
     "analytics.js": "^2.9.1"
