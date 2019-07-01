@@ -127,7 +127,7 @@ export class SegmentService {
      */
     public identify(userId?: string, traits?: any, options?: any): Promise<SegmentService> {
         return new Promise((resolve) => {
-            this.w.analytics.identify(userId, traits, options, resolve(this));
+            this.w.analytics.identify(userId, traits, options, _ => resolve(this));
         });
     }
 
@@ -142,7 +142,7 @@ export class SegmentService {
      */
     public track(event: string, properties?: any, options?: any): Promise<SegmentService> {
         return new Promise((resolve) => {
-            this.w.analytics.track(event, properties, options, resolve(this));
+            this.w.analytics.track(event, properties, options, _ => resolve(this));
         });
     }
 
@@ -181,7 +181,7 @@ export class SegmentService {
      */
     public page(category?: string, name?: string, properties?: any, options?: any): Promise<SegmentService> {
         return new Promise((resolve) => {
-            this.w.analytics.page(category, name, properties, options, resolve(this));
+            this.w.analytics.page(category, name, properties, options, _ => resolve(this));
         });
     }
 
@@ -196,7 +196,7 @@ export class SegmentService {
      */
     public group(groupId: string, traits?: any): Promise<SegmentService> {
         return new Promise((resolve) => {
-            this.w.analytics.group(groupId, traits, resolve(this));
+            this.w.analytics.group(groupId, traits, _ => resolve(this));
         });
     }
 
@@ -211,7 +211,7 @@ export class SegmentService {
      */
     public alias(userId: string, previousId?: string, options?: any): Promise<SegmentService> {
         return new Promise((resolve) => {
-            this.w.analytics.alias(userId, previousId, options, resolve(this));
+            this.w.analytics.alias(userId, previousId, options, _ => resolve(this));
         });
     }
 
@@ -223,7 +223,7 @@ export class SegmentService {
      */
     public ready(): Promise<SegmentService> {
         return new Promise((resolve) => {
-            this.w.analytics.ready(resolve(this));
+            this.w.analytics.ready(_ => resolve(this));
         });
     }
 
