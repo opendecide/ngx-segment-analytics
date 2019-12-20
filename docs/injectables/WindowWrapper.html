@@ -145,10 +145,10 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { NgModule, ModuleWithProviders, Optional, SkipSelf, InjectionToken, Injectable, PLATFORM_ID } from &#x27;@angular/core&#x27;;
-import { CommonModule, isPlatformBrowser } from &#x27;@angular/common&#x27;;
-import { SegmentService } from &#x27;./ngx-segment-analytics.service&#x27;;
-import { SegmentConfig } from &#x27;./ngx-segment-analytics.config&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Injectable, InjectionToken, ModuleWithProviders, NgModule, Optional, PLATFORM_ID, SkipSelf} from &#x27;@angular/core&#x27;;
+import {CommonModule, isPlatformBrowser} from &#x27;@angular/common&#x27;;
+import {SegmentService} from &#x27;./ngx-segment-analytics.service&#x27;;
+import {SegmentConfig} from &#x27;./ngx-segment-analytics.config&#x27;;
 
 /** Segment Configuration Injection Token */
 export const SEGMENT_CONFIG: InjectionToken&lt;SegmentConfig&gt; &#x3D; new InjectionToken&lt;SegmentConfig&gt;(&#x27;ngx-segment-analytics.config&#x27;);
@@ -167,7 +167,7 @@ export class WindowWrapper {
  * @returns Browser Window instance
  */
 export function getWindow(platformId: any) {
-  return isPlatformBrowser(platformId) ? window : {};
+    return isPlatformBrowser(platformId) ? window : {};
 }
 
 /**
@@ -176,7 +176,7 @@ export function getWindow(platformId: any) {
 @NgModule({
     imports: [CommonModule],
     providers: [
-        { provide: WindowWrapper, useFactory: getWindow, deps: [PLATFORM_ID] }
+        {provide: WindowWrapper, useFactory: getWindow, deps: [PLATFORM_ID]}
     ]
 })
 export class SegmentModule {
@@ -187,11 +187,11 @@ export class SegmentModule {
      * @param config Segment Configuration
      * @returns Segment Module
      */
-    public static forRoot(config?: SegmentConfig): ModuleWithProviders {
+    public static forRoot(config?: SegmentConfig): ModuleWithProviders&lt;SegmentModule&gt; {
         return {
             ngModule: SegmentModule,
             providers: [
-                { provide: SEGMENT_CONFIG, useValue: config },
+                {provide: SEGMENT_CONFIG, useValue: config},
                 SegmentService,
             ],
         };
