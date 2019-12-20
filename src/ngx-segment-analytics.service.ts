@@ -16,42 +16,42 @@ export interface SegmentPlugin {
 export class SegmentService {
 
     /**
-     * @param w Browser window
-     * @param doc Browser DOM
-     * @param config Segment configuration
+     * @param _w Browser window
+     * @param _doc Browser DOM
+     * @param _config Segment configuration
      */
     constructor(
-        @Inject(WindowWrapper) private w: WindowWrapper,
-        @Inject(DOCUMENT) private doc: Document,
-        @Inject(SEGMENT_CONFIG) private config: SegmentConfig
+        @Inject(WindowWrapper) private _w: WindowWrapper,
+        @Inject(DOCUMENT) private _doc: Document,
+        @Inject(SEGMENT_CONFIG) private _config: SegmentConfig
     ) {
-        if (typeof this.config.loadOnInitialization !== 'boolean') {
-            this.config.loadOnInitialization = true; // Compatibility < 1.2.5
+        if (typeof this._config.loadOnInitialization !== 'boolean') {
+            this._config.loadOnInitialization = true; // Compatibility < 1.2.5
         }
 
-        if (this.config.loadOnInitialization && (typeof this.config.apiKey === 'undefined' || this.config.apiKey === '')) {
+        if (this._config.loadOnInitialization && (typeof this._config.apiKey === 'undefined' || this._config.apiKey === '')) {
             console.error('The API Key cannot be an empty string if Segment must be loaded on initialization.');
             return;
         }
 
         if (
-            typeof this.w.analytics === 'undefined'
-            || typeof this.w.analytics.initialize === 'undefined'
-            || this.w.analytics.initialize === false
+            typeof this._w.analytics === 'undefined'
+            || typeof this._w.analytics.initialize === 'undefined'
+            || this._w.analytics.initialize === false
         ) {
-            if (typeof this.w.analytics !== 'undefined' && this.w.analytics.invoked === true) {
+            if (typeof this._w.analytics !== 'undefined' && this._w.analytics.invoked === true) {
                 console.error('Segment snippet included twice.');
                 return;
             }
 
-            if (this.config.debug) {
-                console.log('Segment initialization ...');
+            if (this._config.debug) {
+                console.log('Segment initialization...');
             }
 
-            this.w.analytics = [];
-            this.w.analytics.invoked = true;
+            this._w.analytics = [];
+            this._w.analytics.invoked = true;
 
-            this.w.analytics.methods = [
+            this._w.analytics.methods = [
                 'trackSubmit',
                 'trackClick',
                 'trackLink',
@@ -70,34 +70,34 @@ export class SegmentService {
                 'on',
             ];
 
-            this.w.analytics.factory = (method: string) => {
+            this._w.analytics.factory = (method: string) => {
                 return (...args) => {
                     args.unshift(method);
-                    this.w.analytics.push(args);
-                    return this.w.analytics;
+                    this._w.analytics.push(args);
+                    return this._w.analytics;
                 };
             };
 
-            this.w.analytics.methods.forEach((method: string) => {
-                this.w.analytics[method] = this.w.analytics.factory(method);
+            this._w.analytics.methods.forEach((method: string) => {
+                this._w.analytics[method] = this._w.analytics.factory(method);
             });
 
-            const segmentHost: string = typeof this.config.segmentHost === 'string' ? this.config.segmentHost : 'cdn.segment.com';
+            const segmentHost: string = typeof this._config.segmentHost === 'string' ? this._config.segmentHost : 'cdn.segment.com';
 
-            this.w.analytics.load = (key: string, options: { integrations: { [key: string]: boolean } }) => {
-                const script = this.doc.createElement('script');
+            this._w.analytics.load = (key: string, options: { integrations: { [key: string]: boolean } }) => {
+                const script = this._doc.createElement('script');
                 script.type = 'text/javascript';
                 script.async = true;
                 script.src = 'https://' + segmentHost + '/analytics.js/v1/' + key + '/analytics.min.js';
 
-                const first = this.doc.getElementsByTagName('script')[0];
+                const first = this._doc.getElementsByTagName('script')[0];
                 first.parentNode.insertBefore(script, first);
-                this.w.analytics._loadOptions = options;
+                this._w.analytics._loadOptions = options;
             };
 
-            this.w.analytics.SNIPPET_VERSION = '4.1.0';
-            if (this.config.loadOnInitialization) {
-                this.load(this.config.apiKey);
+            this._w.analytics.SNIPPET_VERSION = '4.1.0';
+            if (this._config.loadOnInitialization) {
+                this.load(this._config.apiKey);
             }
         }
     }
@@ -109,11 +109,11 @@ export class SegmentService {
      * @param options Optional parameters
      */
     public load(apiKey: string, options?: any): void {
-        this.w.analytics.load(apiKey, options);
-        if (this.config.debug) {
+        this._w.analytics.load(apiKey, options);
+        if (this._config.debug) {
             console.log('Segment initialized');
         }
-        this.debug(this.config.debug);
+        this.debug(this._config.debug);
     }
 
     /**
@@ -127,7 +127,7 @@ export class SegmentService {
      */
     public identify(userId?: string, traits?: any, options?: any): Promise<SegmentService> {
         return new Promise((resolve) => {
-            this.w.analytics.identify(userId, traits, options, _ => resolve(this));
+            this._w.analytics.identify(userId, traits, options, _ => resolve(this));
         });
     }
 
@@ -142,7 +142,7 @@ export class SegmentService {
      */
     public track(event: string, properties?: any, options?: any): Promise<SegmentService> {
         return new Promise((resolve) => {
-            this.w.analytics.track(event, properties, options, _ => resolve(this));
+            this._w.analytics.track(event, properties, options, _ => resolve(this));
         });
     }
 
@@ -181,7 +181,7 @@ export class SegmentService {
      */
     public page(category?: string, name?: string, properties?: any, options?: any): Promise<SegmentService> {
         return new Promise((resolve) => {
-            this.w.analytics.page(category, name, properties, options, _ => resolve(this));
+            this._w.analytics.page(category, name, properties, options, _ => resolve(this));
         });
     }
 
@@ -196,7 +196,7 @@ export class SegmentService {
      */
     public group(groupId: string, traits?: any): Promise<SegmentService> {
         return new Promise((resolve) => {
-            this.w.analytics.group(groupId, traits, _ => resolve(this));
+            this._w.analytics.group(groupId, traits, _ => resolve(this));
         });
     }
 
@@ -211,7 +211,7 @@ export class SegmentService {
      */
     public alias(userId: string, previousId?: string, options?: any): Promise<SegmentService> {
         return new Promise((resolve) => {
-            this.w.analytics.alias(userId, previousId, options, _ => resolve(this));
+            this._w.analytics.alias(userId, previousId, options, _ => resolve(this));
         });
     }
 
@@ -223,7 +223,7 @@ export class SegmentService {
      */
     public ready(): Promise<SegmentService> {
         return new Promise((resolve) => {
-            this.w.analytics.ready(_ => resolve(this));
+            this._w.analytics.ready(_ => resolve(this));
         });
     }
 
@@ -233,7 +233,7 @@ export class SegmentService {
      * @returns Informations about the currently identified user
      */
     public user(): any {
-        return this.w.analytics.user();
+        return this._w.analytics.user();
     }
 
     /**
@@ -242,7 +242,7 @@ export class SegmentService {
      * @returns Identifier about the currently identified user
      */
     public id(): string | null {
-        return this.w.analytics.id();
+        return this._w.analytics.id();
     }
 
     /**
@@ -251,14 +251,14 @@ export class SegmentService {
      * @returns Traits about the currently identified user
      */
     public traits(): any {
-        return this.w.analytics.traits();
+        return this._w.analytics.traits();
     }
 
     /**
      * Reset the id, including anonymousId, and clear traits for the currently identified user and group.
      */
     public reset(): void {
-        this.w.analytics.reset();
+        this._w.analytics.reset();
     }
 
     /**
@@ -267,7 +267,7 @@ export class SegmentService {
      * @param enabled Enable or not the debug mode
      */
     public debug(enabled?: boolean): void {
-        this.w.analytics.debug(enabled);
+        this._w.analytics.debug(enabled);
     }
 
     /**
@@ -277,7 +277,7 @@ export class SegmentService {
      * @param callback A function to execute after each the emitted method
      */
     public on(method: string, callback: (event?: string, properties?: any, options?: any) => any): void {
-        this.w.analytics.on(method, callback);
+        this._w.analytics.on(method, callback);
     }
 
     /**
@@ -289,7 +289,7 @@ export class SegmentService {
      * @param properties A dictionary of properties to pass with the `track` method.
      */
     public trackLink(elements: HTMLElement | HTMLElement[], event: string | Function, properties?: any | Function): void {
-        this.w.analytics.trackLink(elements, event, properties);
+        this._w.analytics.trackLink(elements, event, properties);
     }
 
     /**
@@ -300,7 +300,7 @@ export class SegmentService {
      * @param properties A dictionary of properties to pass with the `track` method.
      */
     public trackForm(forms: HTMLElement | HTMLElement[], event: string | Function, properties?: any | Function): void {
-        this.w.analytics.trackForm(forms, event, properties);
+        this._w.analytics.trackForm(forms, event, properties);
     }
 
     /**
@@ -309,10 +309,10 @@ export class SegmentService {
      * @param timeout Number of milliseconds
      */
     public timeout(timeout: number): void {
-        this.w.analytics.timeout(timeout);
+        this._w.analytics.timeout(timeout);
     }
 
     public get plugins(): { [pluginName: string]: SegmentPlugin } {
-        return this.w.analytics.plugins;
+        return this._w.analytics.plugins;
     }
 }

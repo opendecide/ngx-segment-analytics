@@ -2,12 +2,12 @@
   "name": "@opendecide/ngx-segment-analytics",
   "version": "1.4.0",
   "scripts": {
-    "build": "gulp build",
-    "build:watch": "gulp",
-    "docs": "npm run docs:build",
+    "build": "ng-packagr -p src/package.json",
+    "build:watch": "yarn run build --watch",
+    "docs": "yarn run docs:build",
     "docs:build": "compodoc -p tsconfig.json -n ngx-segment-analytics -d docs --hideGenerator",
-    "docs:serve": "npm run docs:build -- -s",
-    "docs:watch": "npm run docs:build -- -s -w",
+    "docs:serve": "yarn run docs:build -- -s",
+    "docs:watch": "yarn run docs:build -- -s -w",
     "lint": "tslint --project tsconfig.json src/**/*.ts",
     "test": "echo 'not implemented yet'",
     "test_not_yet": "tsc && karma start"
@@ -17,8 +17,7 @@
     "url": "https://github.com/opendecide/ngx-segment-analytics"
   },
   "author": {
-    "name": "OpenDecide",
-    "email": "contact@opendecide.com"
+    "name": "OpenDecide"
   },
   "keywords": [
     "angular",
@@ -29,20 +28,17 @@
     "url": "https://github.com/opendecide/ngx-segment-analytics/issues"
   },
   "devDependencies": {
-    "@angular/common": "^4.0.0",
-    "@angular/compiler": "^4.0.0",
-    "@angular/compiler-cli": "^4.0.0",
-    "@angular/core": "^4.0.0",
-    "@angular/platform-browser": "^4.0.0",
-    "@angular/platform-browser-dynamic": "^4.0.0",
-    "@compodoc/compodoc": "^1.1.9",
+    "@angular/common": "^6.0.0",
+    "@angular/compiler": "^6.0.0",
+    "@angular/compiler-cli": "^6.0.0",
+    "@angular/core": "^6.0.0",
+    "@angular/platform-browser": "^6.0.0",
+    "@angular/platform-browser-dynamic": "^6.0.0",
+    "@compodoc/compodoc": "^1.1.11",
     "@types/jasmine": "^3.3.12",
-    "@types/node": "^12.0.0",
-    "codelyzer": "^5.1.0",
+    "@types/node": "^12.12.21",
+    "codelyzer": "^5.2.1",
     "core-js": "^2.6.5",
-    "del": "^5.0.0",
-    "gulp": "^4.0.0",
-    "gulp-rollup": "^2.15.0",
     "jasmine-core": "~3.4.0",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "^4.1.0",
@@ -51,14 +47,13 @@
     "karma-coverage-istanbul-reporter": "^2.0.5",
     "karma-jasmine": "^2.0.1",
     "karma-jasmine-html-reporter": "^1.4.0",
-    "node-watch": "^0.6.1",
+    "ng-packagr": "^5.7.1",
     "protractor": "~5.4.2",
-    "rollup": "^1.10.0",
-    "run-sequence": "^2.2.0",
-    "rxjs": "^5.5.10",
-    "ts-node": "^8.1.0",
-    "tslint": "^5.16.0",
-    "typescript": "~2.6.2",
+    "rxjs": "^6.0.0",
+    "ts-node": "^8.5.4",
+    "tslib": "^1.9.3",
+    "tslint": "^5.20.1",
+    "typescript": "~2.9.0",
     "zone.js": "^0.8.4"
   },
   "engines": {

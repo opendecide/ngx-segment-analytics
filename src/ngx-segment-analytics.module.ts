@@ -1,7 +1,7 @@
-import { NgModule, ModuleWithProviders, Optional, SkipSelf, InjectionToken, Injectable, PLATFORM_ID } from '@angular/core';
-import { CommonModule, isPlatformBrowser } from '@angular/common';
-import { SegmentService } from './ngx-segment-analytics.service';
-import { SegmentConfig } from './ngx-segment-analytics.config';
+import {Injectable, InjectionToken, ModuleWithProviders, NgModule, Optional, PLATFORM_ID, SkipSelf} from '@angular/core';
+import {CommonModule, isPlatformBrowser} from '@angular/common';
+import {SegmentService} from './ngx-segment-analytics.service';
+import {SegmentConfig} from './ngx-segment-analytics.config';
 
 /** Segment Configuration Injection Token */
 export const SEGMENT_CONFIG: InjectionToken<SegmentConfig> = new InjectionToken<SegmentConfig>('ngx-segment-analytics.config');
@@ -20,7 +20,7 @@ export class WindowWrapper {
  * @returns Browser Window instance
  */
 export function getWindow(platformId: any) {
-  return isPlatformBrowser(platformId) ? window : {};
+    return isPlatformBrowser(platformId) ? window : {};
 }
 
 /**
@@ -29,7 +29,7 @@ export function getWindow(platformId: any) {
 @NgModule({
     imports: [CommonModule],
     providers: [
-        { provide: WindowWrapper, useFactory: getWindow, deps: [PLATFORM_ID] }
+        {provide: WindowWrapper, useFactory: getWindow, deps: [PLATFORM_ID]}
     ]
 })
 export class SegmentModule {
@@ -40,11 +40,11 @@ export class SegmentModule {
      * @param config Segment Configuration
      * @returns Segment Module
      */
-    public static forRoot(config?: SegmentConfig): ModuleWithProviders {
+    public static forRoot(config?: SegmentConfig): ModuleWithProviders<SegmentModule> {
         return {
             ngModule: SegmentModule,
             providers: [
-                { provide: SEGMENT_CONFIG, useValue: config },
+                {provide: SEGMENT_CONFIG, useValue: config},
                 SegmentService,
             ],
         };

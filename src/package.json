@@ -18,13 +18,20 @@
   "bugs": {
     "url": "https://github.com/opendecide/ngx-segment-analytics/issues"
   },
-  "module": "ngx-segment-analytics.js",
-  "typings": "ngx-segment-analytics.d.ts",
   "peerDependencies": {
-    "@angular/core": ">=4.0.0 < 9.0.0",
-    "@angular/common": ">=4.0.0 < 9.0.0"
+    "@angular/core": ">=6.0.0 <10.0.0",
+    "@angular/common": ">=6.0.0 <10.0.0"
   },
   "dependencies": {
     "analytics.js": "^2.9.1"
+  },
+  "ngPackage": {
+    "dest": "../dist",
+    "lib": {
+      "entryFile": "index.ts"
+    },
+    "whitelistedNonPeerDependencies": [
+      "analytics.js"
+    ]
   }
 }
