@@ -1,7 +1,7 @@
 import {Inject, Injectable} from '@angular/core';
 import {DOCUMENT} from '@angular/common';
-import {SEGMENT_CONFIG, WindowWrapper} from './ngx-segment-analytics.module';
-import {SegmentConfig} from './ngx-segment-analytics.config';
+import {SEGMENT_CONFIG, SegmentConfig} from './ngx-segment-analytics.config';
+import {WindowWrapper} from './window-wrapper';
 
 export interface SegmentPlugin {
     // Video Plugins
@@ -11,8 +11,9 @@ export interface SegmentPlugin {
     new(): any;
 }
 
-/** @dynamic */
-@Injectable()
+@Injectable({
+    providedIn: 'root',
+})
 export class SegmentService {
 
     /**
@@ -22,7 +23,7 @@ export class SegmentService {
      */
     constructor(
         @Inject(WindowWrapper) private _w: WindowWrapper,
-        @Inject(DOCUMENT) private _doc: Document,
+        @Inject(DOCUMENT) private _doc: any,
         @Inject(SEGMENT_CONFIG) private _config: SegmentConfig
     ) {
         if (typeof this._config.loadOnInitialization !== 'boolean') {

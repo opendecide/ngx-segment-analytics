@@ -1,3 +1,5 @@
+import {InjectionToken} from '@angular/core';
+
 /**
  * Segment Configuration Interface
  */
@@ -11,3 +13,6 @@ export interface SegmentConfig {
     /** Segment Host if requests are proxied **/
     segmentHost?: string;
 }
+
+/** Segment Configuration Injection Token */
+export const SEGMENT_CONFIG: InjectionToken<SegmentConfig> = new InjectionToken<SegmentConfig>('ngx-segment-analytics.config');

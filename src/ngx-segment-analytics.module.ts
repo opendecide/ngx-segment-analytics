@@ -1,19 +1,8 @@
-import {Injectable, InjectionToken, ModuleWithProviders, NgModule, Optional, PLATFORM_ID, SkipSelf} from '@angular/core';
+import {ModuleWithProviders, NgModule, Optional, PLATFORM_ID, SkipSelf} from '@angular/core';
 import {CommonModule, isPlatformBrowser} from '@angular/common';
 import {SegmentService} from './ngx-segment-analytics.service';
-import {SegmentConfig} from './ngx-segment-analytics.config';
-
-/** Segment Configuration Injection Token */
-export const SEGMENT_CONFIG: InjectionToken<SegmentConfig> = new InjectionToken<SegmentConfig>('ngx-segment-analytics.config');
-
-/**
- * Window Wrapper for Angular AOT
- */
-@Injectable()
-export class WindowWrapper {
-    /** Segment Analytics.js instance */
-    public analytics: any;
-}
+import {SEGMENT_CONFIG, SegmentConfig} from './ngx-segment-analytics.config';
+import {WindowWrapper} from './window-wrapper';
 
 /**
  * Window Provider for Angular AOT
@@ -29,7 +18,7 @@ export function getWindow(platformId: any) {
 @NgModule({
     imports: [CommonModule],
     providers: [
-        {provide: WindowWrapper, useFactory: getWindow, deps: [PLATFORM_ID]}
+        {provide: WindowWrapper, useFactory: getWindow, deps: [PLATFORM_ID]},
     ]
 })
 export class SegmentModule {
