@@ -101,6 +101,10 @@
                                             <span class="modifier">Optional</span>
                                         <a href="#segmentHost">segmentHost</a>
                                 </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#segmentUri">segmentUri</a>
+                                </li>
                             </ul>
                         </td>
                     </tr>
@@ -272,12 +276,57 @@
                             </tr>
                         </tbody>
                     </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="segmentUri"></a>
+                                        <span class="name"><b>segmentUri</b><a href="#segmentUri"><span class="icon ion-ios-link"></span></a></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>segmentUri:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Segment Custom URI *</p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
             </section>
     </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export interface SegmentConfig {
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {InjectionToken} from &#x27;@angular/core&#x27;;
+
+/**
+ * Segment Configuration Interface
+ */
+export interface SegmentConfig {
     /** API Key for Segment.io */
     apiKey?: string;
     /** Debug mode status */
@@ -286,7 +335,19 @@
     loadOnInitialization?: boolean;
     /** Segment Host if requests are proxied **/
     segmentHost?: string;
+    /** Segment Custom URI **/
+    segmentUri?: string;
 }
+
+/** Segment Configuration Injection Token */
+export const SEGMENT_CONFIG: InjectionToken&lt;SegmentConfig&gt; &#x3D; new InjectionToken&lt;SegmentConfig&gt;(&#x27;ngx-segment-analytics.config&#x27;);
+
+export const DEFAULT_CONFIG: SegmentConfig &#x3D; {
+    debug: false,
+    loadOnInitialization: true, // Compatibility &lt; 1.2.5
+    segmentHost: &#x27;cdn.segment.com&#x27;,
+    segmentUri: &#x27;/analytics.js/v1/$API_KEY$/analytics.min.js&#x27;,
+};
 </code></pre>
     </div>
 </div>

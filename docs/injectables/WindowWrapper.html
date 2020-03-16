@@ -56,7 +56,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/ngx-segment-analytics.module.ts</code>
+            <code>src/window-wrapper.ts</code>
         </p>
 
             <p class="comment">
@@ -126,7 +126,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/ngx-segment-analytics.module.ts:15</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/window-wrapper.ts:9</a></div>
                             </td>
                         </tr>
 
@@ -145,13 +145,7 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Injectable, InjectionToken, ModuleWithProviders, NgModule, Optional, PLATFORM_ID, SkipSelf} from &#x27;@angular/core&#x27;;
-import {CommonModule, isPlatformBrowser} from &#x27;@angular/common&#x27;;
-import {SegmentService} from &#x27;./ngx-segment-analytics.service&#x27;;
-import {SegmentConfig} from &#x27;./ngx-segment-analytics.config&#x27;;
-
-/** Segment Configuration Injection Token */
-export const SEGMENT_CONFIG: InjectionToken&lt;SegmentConfig&gt; &#x3D; new InjectionToken&lt;SegmentConfig&gt;(&#x27;ngx-segment-analytics.config&#x27;);
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Injectable} from &#x27;@angular/core&#x27;;
 
 /**
  * Window Wrapper for Angular AOT
@@ -160,53 +154,6 @@ export const SEGMENT_CONFIG: InjectionToken&lt;SegmentConfig&gt; &#x3D; new Inje
 export class WindowWrapper {
     /** Segment Analytics.js instance */
     public analytics: any;
-}
-
-/**
- * Window Provider for Angular AOT
- * @returns Browser Window instance
- */
-export function getWindow(platformId: any) {
-    return isPlatformBrowser(platformId) ? window : {};
-}
-
-/**
- * Segment Module
- */
-@NgModule({
-    imports: [CommonModule],
-    providers: [
-        {provide: WindowWrapper, useFactory: getWindow, deps: [PLATFORM_ID]}
-    ]
-})
-export class SegmentModule {
-
-    /**
-     * Segment Module Initialisation
-     *
-     * @param config Segment Configuration
-     * @returns Segment Module
-     */
-    public static forRoot(config?: SegmentConfig): ModuleWithProviders&lt;SegmentModule&gt; {
-        return {
-            ngModule: SegmentModule,
-            providers: [
-                {provide: SEGMENT_CONFIG, useValue: config},
-                SegmentService,
-            ],
-        };
-    }
-
-    /**
-     * Segment Module Constructor
-     *
-     * @param parentModule Must be null
-     */
-    constructor(@Optional() @SkipSelf() parentModule: SegmentModule) {
-        if (parentModule) {
-            throw new Error(&#x27;SegmentModule is already loaded. Import it in the AppModule only&#x27;);
-        }
-    }
 }
 </code></pre>
     </div>

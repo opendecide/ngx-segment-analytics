@@ -75,8 +75,8 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Inject, Injectable} from &#x27;@angular/core&#x27;;
 import {DOCUMENT} from &#x27;@angular/common&#x27;;
-import {SEGMENT_CONFIG, WindowWrapper} from &#x27;./ngx-segment-analytics.module&#x27;;
-import {SegmentConfig} from &#x27;./ngx-segment-analytics.config&#x27;;
+import {DEFAULT_CONFIG, SEGMENT_CONFIG, SegmentConfig} from &#x27;./ngx-segment-analytics.config&#x27;;
+import {WindowWrapper} from &#x27;./window-wrapper&#x27;;
 
 export interface SegmentPlugin {
     // Video Plugins
@@ -86,23 +86,24 @@ export interface SegmentPlugin {
     new(): any;
 }
 
-/** @dynamic */
-@Injectable()
+@Injectable({
+    providedIn: &#x27;root&#x27;,
+})
 export class SegmentService {
+
+    private readonly _config: SegmentConfig;
 
     /**
      * @param _w Browser window
      * @param _doc Browser DOM
-     * @param _config Segment configuration
+     * @param userConfig Segment configuration
      */
     constructor(
         @Inject(WindowWrapper) private _w: WindowWrapper,
-        @Inject(DOCUMENT) private _doc: Document,
-        @Inject(SEGMENT_CONFIG) private _config: SegmentConfig
+        @Inject(DOCUMENT) private _doc: any,
+        @Inject(SEGMENT_CONFIG) userConfig: SegmentConfig
     ) {
-        if (typeof this._config.loadOnInitialization !&#x3D;&#x3D; &#x27;boolean&#x27;) {
-            this._config.loadOnInitialization &#x3D; true; // Compatibility &lt; 1.2.5
-        }
+        this._config &#x3D; {...DEFAULT_CONFIG, ...userConfig};
 
         if (this._config.loadOnInitialization &amp;&amp; (typeof this._config.apiKey &#x3D;&#x3D;&#x3D; &#x27;undefined&#x27; || this._config.apiKey &#x3D;&#x3D;&#x3D; &#x27;&#x27;)) {
             console.error(&#x27;The API Key cannot be an empty string if Segment must be loaded on initialization.&#x27;);
@@ -157,13 +158,11 @@ export class SegmentService {
                 this._w.analytics[method] &#x3D; this._w.analytics.factory(method);
             });
 
-            const segmentHost: string &#x3D; typeof this._config.segmentHost &#x3D;&#x3D;&#x3D; &#x27;string&#x27; ? this._config.segmentHost : &#x27;cdn.segment.com&#x27;;
-
             this._w.analytics.load &#x3D; (key: string, options: { integrations: { [key: string]: boolean } }) &#x3D;&gt; {
                 const script &#x3D; this._doc.createElement(&#x27;script&#x27;);
                 script.type &#x3D; &#x27;text/javascript&#x27;;
                 script.async &#x3D; true;
-                script.src &#x3D; &#x27;https://&#x27; + segmentHost + &#x27;/analytics.js/v1/&#x27; + key + &#x27;/analytics.min.js&#x27;;
+                script.src &#x3D; &#x27;https://&#x27; + this._config.segmentHost + this._config.segmentUri.replace(&#x27;$API_KEY$&#x27;, key);
 
                 const first &#x3D; this._doc.getElementsByTagName(&#x27;script&#x27;)[0];
                 first.parentNode.insertBefore(script, first);
