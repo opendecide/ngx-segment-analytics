@@ -1,6 +1,6 @@
 import {Inject, Injectable} from '@angular/core';
 import {DOCUMENT} from '@angular/common';
-import {SEGMENT_CONFIG, SegmentConfig} from './ngx-segment-analytics.config';
+import {DEFAULT_CONFIG, SEGMENT_CONFIG, SegmentConfig} from './ngx-segment-analytics.config';
 import {WindowWrapper} from './window-wrapper';
 
 export interface SegmentPlugin {
@@ -16,19 +16,19 @@ export interface SegmentPlugin {
 })
 export class SegmentService {
 
+    private readonly _config: SegmentConfig;
+
     /**
      * @param _w Browser window
      * @param _doc Browser DOM
-     * @param _config Segment configuration
+     * @param userConfig Segment configuration
      */
     constructor(
         @Inject(WindowWrapper) private _w: WindowWrapper,
         @Inject(DOCUMENT) private _doc: any,
-        @Inject(SEGMENT_CONFIG) private _config: SegmentConfig
+        @Inject(SEGMENT_CONFIG) userConfig: SegmentConfig
     ) {
-        if (typeof this._config.loadOnInitialization !== 'boolean') {
-            this._config.loadOnInitialization = true; // Compatibility < 1.2.5
-        }
+        this._config = {...DEFAULT_CONFIG, ...userConfig};
 
         if (this._config.loadOnInitialization && (typeof this._config.apiKey === 'undefined' || this._config.apiKey === '')) {
             console.error('The API Key cannot be an empty string if Segment must be loaded on initialization.');
@@ -83,13 +83,11 @@ export class SegmentService {
                 this._w.analytics[method] = this._w.analytics.factory(method);
             });
 
-            const segmentHost: string = typeof this._config.segmentHost === 'string' ? this._config.segmentHost : 'cdn.segment.com';
-
             this._w.analytics.load = (key: string, options: { integrations: { [key: string]: boolean } }) => {
                 const script = this._doc.createElement('script');
                 script.type = 'text/javascript';
                 script.async = true;
-                script.src = 'https://' + segmentHost + '/analytics.js/v1/' + key + '/analytics.min.js';
+                script.src = 'https://' + this._config.segmentHost + this._config.segmentUri.replace('$API_KEY$', key);
 
                 const first = this._doc.getElementsByTagName('script')[0];
                 first.parentNode.insertBefore(script, first);
