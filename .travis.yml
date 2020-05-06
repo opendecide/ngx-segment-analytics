@@ -1,12 +1,6 @@
 language: node_js
 sudo: false
 node_js:
-- 8.0.0
-- 10
-env:
-  global:
-    secure: lGm6p5MIUuTAtJlPCyQ7/kYRFeI4f0xMnjjD5T6uY7rAQ9PHH67T05PYL3A4GOSzYm9rsPVYjmZId0Nh5KexwU34T04mfHOTEM18W2jpUEc8hqE1lSJzGvBt899RgW2KOR9POKNBEjzBN4oOSmIncaHzRrwN6ebmxVQIYmoKZztQgAeb5kJWRQ82Z2GlAaB2PLnKkBxgCo7EKrXvys+fLr4OzN9t2BBtO4KiW7CrXetmgPzyYKaaJOVgRzD4MUFVAlwfCYSpoABNBMkt1OzFjpn47DPST0X5J1kSji+FBPhUW2jhfq71YjgW5v6tdpD9GmLpq0uQ8zeJCXKZeoCWinVf953KJfrXeu/DKu710ekES8cECbZ4kSPPr5+8jyVW0Qm9h6V3ikFUPBW4M4ZYzP0fcum8njPe03qEg06ta0WZVLCjbPdqYKl9RJldzvDasveUx2Tl8FPjqRv3VbNY6ILNNkS/drc/+clefR5WxpzA+l1Xd1CGrFmYbJr8n61xPO+e/nWRJz1989dQg3EjDg1whljyFzFgFjBjGLPr/tKfc+SIKIEcVIHH7QSKfsIFDR8ufv7mHaeJ11nFVZXdfiqUpGcDgQP5TR0PKYwS6GkrgPk0LQoazTW0Kr/4t1ev/YqX6Q8tGrLg3nGWXo57SPmam7k/swGoXO3M7dSsX1A=
-
-before_install: npm install -g greenkeeper-lockfile@1
-before_script: greenkeeper-lockfile-update
-after_script: greenkeeper-lockfile-upload
+    - 8
+    - 10
+    - 12
