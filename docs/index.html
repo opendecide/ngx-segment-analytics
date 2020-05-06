@@ -101,7 +101,8 @@ debug(enabled?: boolean): void;
 on(method: string, callback: (event?: string, properties?: any, options?: any) =&gt; any): void;
 trackLink(elements: HTMLElement | HTMLElement[], event: string | Function, properties?: Object | Function): void;
 trackForm(forms: HTMLElement | HTMLElement[], event: string | Function, properties?: Object | Function): void;
-timeout(timeout: number): void;</code></pre></div><h2 id="development">Development</h2>
+timeout(timeout: number): void;
+addSourceMiddleware(middleware: ({integrations, payload, next}) =&gt; void): void;</code></pre></div><h2 id="development">Development</h2>
 <p>To lint all <code>*.ts</code> files:</p>
 <div><pre class="line-numbers"><code class="language-bash">$ npm run lint</code></pre></div><p>To generate all <code>*.js</code>, <code>*.d.ts</code> and <code>*.metadata.json</code> files:</p>
 <div><pre class="line-numbers"><code class="language-bash">$ npm run build</code></pre></div><p>To publish on npmjs registry :</p>

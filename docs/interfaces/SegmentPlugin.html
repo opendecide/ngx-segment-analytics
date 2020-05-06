@@ -144,6 +144,7 @@ export class SegmentService {
                 &#x27;once&#x27;,
                 &#x27;off&#x27;,
                 &#x27;on&#x27;,
+                &#x27;addSourceMiddleware&#x27;,
             ];
 
             this._w.analytics.factory &#x3D; (method: string) &#x3D;&gt; {
@@ -384,6 +385,15 @@ export class SegmentService {
      */
     public timeout(timeout: number): void {
         this._w.analytics.timeout(timeout);
+    }
+
+    /**
+     * Add a source middleware called on events
+     *
+     * @param middleware Custom function
+     */
+    public addSourceMiddleware(middleware: ({integrations, payload, next}) &#x3D;&gt; void): void {
+        this._w.analytics.addSourceMiddleware(middleware);
     }
 
     public get plugins(): { [pluginName: string]: SegmentPlugin } {
