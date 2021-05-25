@@ -11,6 +11,8 @@ export interface SegmentPlugin {
     new(): any;
 }
 
+export type SegmentMiddleware = ({integrations, payload, next}) => void;
+
 @Injectable({
     providedIn: 'root',
 })
@@ -70,6 +72,9 @@ export class SegmentService {
                 'off',
                 'on',
                 'addSourceMiddleware',
+                'addIntegrationMiddleware',
+                'setAnonymousId',
+                'addDestinationMiddleware',
             ];
 
             this._w.analytics.factory = (method: string) => {
@@ -95,7 +100,8 @@ export class SegmentService {
                 this._w.analytics._loadOptions = options;
             };
 
-            this._w.analytics.SNIPPET_VERSION = '4.1.0';
+            this._w.analytics._writeKey = this._config.apiKey;
+            this._w.analytics.SNIPPET_VERSION = '4.13.2';
             if (this._config.loadOnInitialization) {
                 this.load(this._config.apiKey);
             }
@@ -246,6 +252,15 @@ export class SegmentService {
     }
 
     /**
+     * Override the default Anonymous ID
+     *
+     * @param anonymousId New anonymous ID
+     */
+    public setAnonymousId(anonymousId: string): void {
+        this._w.analytics.setAnonymousId(anonymousId);
+    }
+
+    /**
      * Return traits about the currently identified user
      *
      * @returns Traits about the currently identified user
@@ -317,8 +332,18 @@ export class SegmentService {
      *
      * @param middleware Custom function
      */
-    public addSourceMiddleware(middleware: ({integrations, payload, next}) => void): void {
+    public addSourceMiddleware(middleware: SegmentMiddleware): void {
         this._w.analytics.addSourceMiddleware(middleware);
+    }
+
+    /**
+     * Add a destination middleware called on events
+     *
+     * @param integration Integration name
+     * @param middlewares Custom functions
+     */
+    public addDestinationMiddleware(integration: string, middlewares: SegmentMiddleware[]): void {
+        this._w.analytics.SegmentMiddleware(integration, middlewares);
     }
 
     public get plugins(): { [pluginName: string]: SegmentPlugin } {
