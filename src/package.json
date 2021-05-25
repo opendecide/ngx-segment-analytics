@@ -20,8 +20,8 @@
     "url": "https://github.com/opendecide/ngx-segment-analytics/issues"
   },
   "peerDependencies": {
-    "@angular/core": ">=6.0.0 <12.0.0",
-    "@angular/common": ">=6.0.0 <12.0.0"
+    "@angular/core": ">=6.0.0 <13.0.0",
+    "@angular/common": ">=6.0.0 <13.0.0"
   },
   "dependencies": {
     "analytics.js": "^2.9.1"
@@ -31,7 +31,7 @@
     "lib": {
       "entryFile": "index.ts"
     },
-    "whitelistedNonPeerDependencies": [
+    "allowedNonPeerDependencies": [
       "analytics.js"
     ]
   }

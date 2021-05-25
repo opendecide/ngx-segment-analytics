@@ -27,6 +27,7 @@
   "bugs": {
     "url": "https://github.com/opendecide/ngx-segment-analytics/issues"
   },
+  "dependencies": {},
   "devDependencies": {
     "@angular/common": "^11.0.1",
     "@angular/compiler": "^11.0.1",
