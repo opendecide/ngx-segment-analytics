@@ -23,9 +23,7 @@
     "@angular/core": ">=6.0.0 <13.0.0",
     "@angular/common": ">=6.0.0 <13.0.0"
   },
-  "dependencies": {
-    "analytics.js": "^2.9.1"
-  },
+  "dependencies": {},
   "ngPackage": {
     "dest": "../dist",
     "lib": {
