@@ -266,7 +266,7 @@ export class SegmentService {
      * @returns Traits about the currently identified user
      */
     public traits(): any {
-        return this._w.analytics.traits();
+        return this._w.analytics.user().traits();
     }
 
     /**
@@ -343,7 +343,7 @@ export class SegmentService {
      * @param middlewares Custom functions
      */
     public addDestinationMiddleware(integration: string, middlewares: SegmentMiddleware[]): void {
-        this._w.analytics.SegmentMiddleware(integration, middlewares);
+        this._w.analytics.addDestinationMiddleware(integration, middlewares);
     }
 
     public get plugins(): { [pluginName: string]: SegmentPlugin } {
