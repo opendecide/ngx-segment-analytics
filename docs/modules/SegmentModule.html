@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-	      <link rel="stylesheet" href="../styles/style.css">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css" media="(prefers-color-scheme: dark)">
     </head>
     <body>
 
@@ -34,7 +35,7 @@
 
 <ol class="breadcrumb">
     <li>Modules</li>
-    <li>SegmentModule</li>
+    <li >SegmentModule</li>
 </ol>
 
 
@@ -56,6 +57,7 @@
         <p class="comment">
             <code>src/ngx-segment-analytics.module.ts</code>
         </p>
+
 
 
         <p class="comment">
@@ -83,10 +85,8 @@
                 <td class="col-md-4">
                     <a name="forRoot"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Static</span>
-                            forRoot
-                        </b>
+                        <span class="modifier">Static</span>
+                        <span ><b>forRoot</b></span>
                         <a href="#forRoot"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -94,7 +94,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>forRoot(config?: <a href="../interfaces/SegmentConfig.html">SegmentConfig</a>)</code>
+                    <code>forRoot(config?: <a href="../interfaces/SegmentConfig.html" target="_self">SegmentConfig</a>)</code>
                 </td>
             </tr>
 
@@ -255,9 +255,9 @@ export class SegmentModule {
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
-       <script src="../js/menu-wc.js" defer></script>
+       
+       <script type="module" src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

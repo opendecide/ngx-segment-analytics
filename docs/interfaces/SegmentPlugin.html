@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-	      <link rel="stylesheet" href="../styles/style.css">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css" media="(prefers-color-scheme: dark)">
     </head>
     <body>
 
@@ -43,7 +44,9 @@
 
 <ol class="breadcrumb">
   <li>Interfaces</li>
-  <li>SegmentPlugin</li>
+  <li
+  >
+  SegmentPlugin</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -69,6 +72,7 @@
 
 
 
+
     </div>
 
 
@@ -85,6 +89,8 @@ export interface SegmentPlugin {
     // Others plugins
     new(): any;
 }
+
+export type SegmentMiddleware &#x3D; ({integrations, payload, next}) &#x3D;&gt; void;
 
 @Injectable({
     providedIn: &#x27;root&#x27;,
@@ -145,6 +151,9 @@ export class SegmentService {
                 &#x27;off&#x27;,
                 &#x27;on&#x27;,
                 &#x27;addSourceMiddleware&#x27;,
+                &#x27;addIntegrationMiddleware&#x27;,
+                &#x27;setAnonymousId&#x27;,
+                &#x27;addDestinationMiddleware&#x27;,
             ];
 
             this._w.analytics.factory &#x3D; (method: string) &#x3D;&gt; {
@@ -170,7 +179,8 @@ export class SegmentService {
                 this._w.analytics._loadOptions &#x3D; options;
             };
 
-            this._w.analytics.SNIPPET_VERSION &#x3D; &#x27;4.1.0&#x27;;
+            this._w.analytics._writeKey &#x3D; this._config.apiKey;
+            this._w.analytics.SNIPPET_VERSION &#x3D; &#x27;4.13.2&#x27;;
             if (this._config.loadOnInitialization) {
                 this.load(this._config.apiKey);
             }
@@ -321,12 +331,21 @@ export class SegmentService {
     }
 
     /**
+     * Override the default Anonymous ID
+     *
+     * @param anonymousId New anonymous ID
+     */
+    public setAnonymousId(anonymousId: string): void {
+        this._w.analytics.setAnonymousId(anonymousId);
+    }
+
+    /**
      * Return traits about the currently identified user
      *
      * @returns Traits about the currently identified user
      */
     public traits(): any {
-        return this._w.analytics.traits();
+        return this._w.analytics.user().traits();
     }
 
     /**
@@ -392,8 +411,18 @@ export class SegmentService {
      *
      * @param middleware Custom function
      */
-    public addSourceMiddleware(middleware: ({integrations, payload, next}) &#x3D;&gt; void): void {
+    public addSourceMiddleware(middleware: SegmentMiddleware): void {
         this._w.analytics.addSourceMiddleware(middleware);
+    }
+
+    /**
+     * Add a destination middleware called on events
+     *
+     * @param integration Integration name
+     * @param middlewares Custom functions
+     */
+    public addDestinationMiddleware(integration: string, middlewares: SegmentMiddleware[]): void {
+        this._w.analytics.addDestinationMiddleware(integration, middlewares);
     }
 
     public get plugins(): { [pluginName: string]: SegmentPlugin } {
@@ -433,9 +462,9 @@ export class SegmentService {
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
-       <script src="../js/menu-wc.js" defer></script>
+       
+       <script type="module" src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

@@ -52,7 +52,7 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                         </a>
                         <ul class="links collapse " ${ isNormalMode ? 'id="modules-links"' : 'id="xs-modules-links"' }>
                             <li class="link">
-                                <a href="modules/SegmentModule.html" data-type="entity-link">SegmentModule</a>
+                                <a href="modules/SegmentModule.html" data-type="entity-link" >SegmentModule</a>
                             </li>
                 </ul>
                 </li>
@@ -65,10 +65,10 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </div>
                             <ul class="links collapse " ${ isNormalMode ? 'id="injectables-links"' : 'id="xs-injectables-links"' }>
                                 <li class="link">
-                                    <a href="injectables/SegmentService.html" data-type="entity-link">SegmentService</a>
+                                    <a href="injectables/SegmentService.html" data-type="entity-link" >SegmentService</a>
                                 </li>
                                 <li class="link">
-                                    <a href="injectables/WindowWrapper.html" data-type="entity-link">WindowWrapper</a>
+                                    <a href="injectables/WindowWrapper.html" data-type="entity-link" >WindowWrapper</a>
                                 </li>
                             </ul>
                         </li>
@@ -81,10 +81,10 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                         </div>
                         <ul class="links collapse " ${ isNormalMode ? ' id="interfaces-links"' : 'id="xs-interfaces-links"' }>
                             <li class="link">
-                                <a href="interfaces/SegmentConfig.html" data-type="entity-link">SegmentConfig</a>
+                                <a href="interfaces/SegmentConfig.html" data-type="entity-link" >SegmentConfig</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/SegmentPlugin.html" data-type="entity-link">SegmentPlugin</a>
+                                <a href="interfaces/SegmentPlugin.html" data-type="entity-link" >SegmentPlugin</a>
                             </li>
                         </ul>
                     </li>
@@ -98,6 +98,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                         <ul class="links collapse " ${ isNormalMode ? 'id="miscellaneous-links"' : 'id="xs-miscellaneous-links"' }>
                             <li class="link">
                                 <a href="miscellaneous/functions.html" data-type="entity-link">Functions</a>
+                            </li>
+                            <li class="link">
+                                <a href="miscellaneous/typealiases.html" data-type="entity-link">Type aliases</a>
                             </li>
                             <li class="link">
                                 <a href="miscellaneous/variables.html" data-type="entity-link">Variables</a>
