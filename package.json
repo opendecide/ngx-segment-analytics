@@ -1,6 +1,6 @@
 {
   "name": "@opendecide/ngx-segment-analytics",
-  "version": "1.7.0",
+  "version": "1.8.1",
   "scripts": {
     "build": "ng-packagr -p src/package.json",
     "build:watch": "yarn run build --watch",

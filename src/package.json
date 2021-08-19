@@ -1,7 +1,7 @@
 {
   "$schema": "./../node_modules/ng-packagr/package.schema.json",
   "name": "ngx-segment-analytics",
-  "version": "1.8.0",
+  "version": "1.8.1",
   "description": "Segment Analytics for Angular",
   "repository": {
     "type": "git",
