@@ -1,6 +1,6 @@
 {
   "name": "ngx-segment-analytics",
-  "version": "1.8.1",
+  "version": "2.0.0",
   "description": "Segment Analytics for Angular",
   "repository": {
     "type": "git",
