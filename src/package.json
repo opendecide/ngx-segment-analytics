@@ -1,5 +1,4 @@
 {
-  "$schema": "./../node_modules/ng-packagr/package.schema.json",
   "name": "ngx-segment-analytics",
   "version": "1.8.1",
   "description": "Segment Analytics for Angular",
@@ -23,14 +22,5 @@
     "@angular/common": ">=6.0.0 <13.0.0",
     "@angular/core": ">=6.0.0 <13.0.0"
   },
-  "dependencies": {},
-  "ngPackage": {
-    "dest": "../dist",
-    "lib": {
-      "entryFile": "index.ts"
-    },
-    "allowedNonPeerDependencies": [
-      "analytics.js"
-    ]
-  }
+  "dependencies": {}
 }

@@ -1,0 +1,10 @@
+{
+    "$schema": "./../node_modules/ng-packagr/package.schema.json",
+    "allowedNonPeerDependencies": [
+        "analytics.js"
+    ],
+    "dest": "../dist",
+    "lib": {
+        "entryFile": "index.ts"
+    }
+}
