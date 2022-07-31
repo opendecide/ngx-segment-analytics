@@ -1,4 +1,5 @@
 import {InjectionToken} from '@angular/core';
+import type {Plugin} from '@segment/analytics-next';
 
 /**
  * Segment Configuration Interface
@@ -14,6 +15,8 @@ export interface SegmentConfig {
     segmentHost?: string;
     /** Segment Custom URI **/
     segmentUri?: string;
+    /** Plugins **/
+    plugins?: Plugin[];
 }
 
 /** Segment Configuration Injection Token */
@@ -24,4 +27,5 @@ export const DEFAULT_CONFIG: SegmentConfig = {
     loadOnInitialization: true, // Compatibility < 1.2.5
     segmentHost: 'cdn.segment.com',
     segmentUri: '/analytics.js/v1/$API_KEY$/analytics.min.js',
+    plugins: [],
 };

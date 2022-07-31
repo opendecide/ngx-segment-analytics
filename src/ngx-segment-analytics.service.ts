@@ -2,6 +2,7 @@ import {Inject, Injectable} from '@angular/core';
 import {DOCUMENT} from '@angular/common';
 import {DEFAULT_CONFIG, SEGMENT_CONFIG, SegmentConfig} from './ngx-segment-analytics.config';
 import {WindowWrapper} from './window-wrapper';
+import type {Plugin as NewSegmentPlugin} from '@segment/analytics-next';
 
 export interface SegmentPlugin {
     // Video Plugins
@@ -18,7 +19,7 @@ export type SegmentMiddleware = ({integrations, payload, next}) => void;
 })
 export class SegmentService {
 
-    private readonly _config: SegmentConfig;
+    protected readonly _config: SegmentConfig;
 
     /**
      * @param _w Browser window
@@ -47,7 +48,7 @@ export class SegmentService {
                 return;
             }
 
-            if (this._config.debug) {
+            if (true === this._config.debug) {
                 console.log('Segment initialization...');
             }
 
@@ -75,6 +76,7 @@ export class SegmentService {
                 'addIntegrationMiddleware',
                 'setAnonymousId',
                 'addDestinationMiddleware',
+                'register',
             ];
 
             this._w.analytics.factory = (method: string) => {
@@ -101,7 +103,7 @@ export class SegmentService {
             };
 
             this._w.analytics._writeKey = this._config.apiKey;
-            this._w.analytics.SNIPPET_VERSION = '4.13.2';
+            this._w.analytics.SNIPPET_VERSION = '4.15.3';
             if (this._config.loadOnInitialization) {
                 this.load(this._config.apiKey);
             }
@@ -116,7 +118,7 @@ export class SegmentService {
      */
     public load(apiKey: string, options?: any): void {
         this._w.analytics.load(apiKey, options);
-        if (this._config.debug) {
+        if (true === this._config.debug) {
             console.log('Segment initialized');
         }
         this.debug(this._config.debug);
@@ -234,7 +236,7 @@ export class SegmentService {
     }
 
     /**
-     * Return informations about the currently identified user
+     * Return information about the currently identified user
      *
      * @returns Informations about the currently identified user
      */
@@ -346,6 +348,19 @@ export class SegmentService {
         this._w.analytics.addDestinationMiddleware(integration, middlewares);
     }
 
+    /**
+     *
+     * @param plugins
+     */
+    public register(...plugins: NewSegmentPlugin[]): Promise<void> {
+        return this._w.analytics.register(...plugins);
+    }
+
+    /**
+     * Get registered plugins
+     *
+     * @deprecated This is being deprecated and will be not be available in future releases of Analytics JS
+     */
     public get plugins(): { [pluginName: string]: SegmentPlugin } {
         return this._w.analytics.plugins;
     }
