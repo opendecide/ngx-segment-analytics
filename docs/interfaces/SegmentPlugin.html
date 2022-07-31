@@ -82,6 +82,7 @@
 import {DOCUMENT} from &#x27;@angular/common&#x27;;
 import {DEFAULT_CONFIG, SEGMENT_CONFIG, SegmentConfig} from &#x27;./ngx-segment-analytics.config&#x27;;
 import {WindowWrapper} from &#x27;./window-wrapper&#x27;;
+import type {Plugin as NewSegmentPlugin} from &#x27;@segment/analytics-next&#x27;;
 
 export interface SegmentPlugin {
     // Video Plugins
@@ -98,7 +99,7 @@ export type SegmentMiddleware &#x3D; ({integrations, payload, next}) &#x3D;&gt; 
 })
 export class SegmentService {
 
-    private readonly _config: SegmentConfig;
+    protected readonly _config: SegmentConfig;
 
     /**
      * @param _w Browser window
@@ -127,7 +128,7 @@ export class SegmentService {
                 return;
             }
 
-            if (this._config.debug) {
+            if (true &#x3D;&#x3D;&#x3D; this._config.debug) {
                 console.log(&#x27;Segment initialization...&#x27;);
             }
 
@@ -155,6 +156,7 @@ export class SegmentService {
                 &#x27;addIntegrationMiddleware&#x27;,
                 &#x27;setAnonymousId&#x27;,
                 &#x27;addDestinationMiddleware&#x27;,
+                &#x27;register&#x27;,
             ];
 
             this._w.analytics.factory &#x3D; (method: string) &#x3D;&gt; {
@@ -181,7 +183,7 @@ export class SegmentService {
             };
 
             this._w.analytics._writeKey &#x3D; this._config.apiKey;
-            this._w.analytics.SNIPPET_VERSION &#x3D; &#x27;4.13.2&#x27;;
+            this._w.analytics.SNIPPET_VERSION &#x3D; &#x27;4.15.3&#x27;;
             if (this._config.loadOnInitialization) {
                 this.load(this._config.apiKey);
             }
@@ -196,7 +198,7 @@ export class SegmentService {
      */
     public load(apiKey: string, options?: any): void {
         this._w.analytics.load(apiKey, options);
-        if (this._config.debug) {
+        if (true &#x3D;&#x3D;&#x3D; this._config.debug) {
             console.log(&#x27;Segment initialized&#x27;);
         }
         this.debug(this._config.debug);
@@ -314,7 +316,7 @@ export class SegmentService {
     }
 
     /**
-     * Return informations about the currently identified user
+     * Return information about the currently identified user
      *
      * @returns Informations about the currently identified user
      */
@@ -426,6 +428,19 @@ export class SegmentService {
         this._w.analytics.addDestinationMiddleware(integration, middlewares);
     }
 
+    /**
+     *
+     * @param plugins
+     */
+    public register(...plugins: NewSegmentPlugin[]): Promise&lt;void&gt; {
+        return this._w.analytics.register(...plugins);
+    }
+
+    /**
+     * Get registered plugins
+     *
+     * @deprecated This is being deprecated and will be not be available in future releases of Analytics JS
+     */
     public get plugins(): { [pluginName: string]: SegmentPlugin } {
         return this._w.analytics.plugins;
     }
@@ -433,6 +448,7 @@ export class SegmentService {
 </code></pre>
     </div>
 </div>
+
 
 
 
