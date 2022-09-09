@@ -1,63 +1,63 @@
 {
-  "name": "@opendecide/ngx-segment-analytics",
-  "version": "2.0.0",
-  "scripts": {
-    "build": "ng-packagr -p src/ng-package.json",
-    "build:watch": "yarn run build --watch",
-    "docs": "yarn run docs:build",
-    "docs:build": "compodoc -p tsconfig.json -n ngx-segment-analytics -d docs --hideGenerator",
-    "docs:serve": "yarn run docs:build -- -s",
-    "docs:watch": "yarn run docs:build -- -s -w",
-    "lint": "tslint --project tsconfig.json src/**/*.ts",
-    "test": "echo 'not implemented yet'",
-    "test_not_yet": "tsc && karma start"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/opendecide/ngx-segment-analytics"
-  },
-  "author": {
-    "name": "OpenDecide"
-  },
-  "keywords": [
-    "angular",
-    "segment"
-  ],
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/opendecide/ngx-segment-analytics/issues"
-  },
-  "dependencies": {},
-  "devDependencies": {
-    "@angular/common": "^13.2.2",
-    "@angular/compiler": "^13.2.2",
-    "@angular/compiler-cli": "^13.2.2",
-    "@angular/core": "^13.2.2",
-    "@angular/platform-browser": "^13.2.2",
-    "@angular/platform-browser-dynamic": "^13.2.2",
-    "@compodoc/compodoc": "^1.1.18",
-    "@types/jasmine": "^3.10.3",
-    "@types/node": "^17.0.18",
-    "codelyzer": "^6.0.1",
-    "core-js": "^3.21.0",
-    "jasmine-core": "~4.0.0",
-    "jasmine-spec-reporter": "~7.0.0",
-    "karma": "^6.3.16",
-    "karma-chrome-launcher": "~3.1.0",
-    "karma-cli": "~2.0.0",
-    "karma-coverage-istanbul-reporter": "^3.0.2",
-    "karma-jasmine": "^4.0.1",
-    "karma-jasmine-html-reporter": "^1.5.3",
-    "ng-packagr": "^13.2.1",
-    "protractor": "~7.0.0",
-    "rxjs": "^7.5.4",
-    "ts-node": "^10.5.0",
-    "tslib": "^2.0.3",
-    "tslint": "^6.1.2",
-    "typescript": "~4.5.5",
-    "zone.js": "^0.11.3"
-  },
-  "engines": {
-    "node": ">=10.0.0"
-  }
+	"name": "@opendecide/ngx-segment-analytics",
+	"version": "2.1.0",
+	"scripts": {
+		"build": "ng-packagr -p src/ng-package.json",
+		"build:watch": "yarn run build --watch",
+		"docs": "yarn run docs:build",
+		"docs:build": "compodoc -p tsconfig.json -n ngx-segment-analytics -d docs --hideGenerator",
+		"docs:serve": "yarn run docs:build -- -s",
+		"docs:watch": "yarn run docs:build -- -s -w",
+		"lint": "tslint --project tsconfig.json src/**/*.ts",
+		"test": "echo 'not implemented yet'",
+		"test_not_yet": "tsc && karma start"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/opendecide/ngx-segment-analytics"
+	},
+	"author": {
+		"name": "OpenDecide"
+	},
+	"keywords": [
+		"angular",
+		"segment"
+	],
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/opendecide/ngx-segment-analytics/issues"
+	},
+	"dependencies": {},
+	"devDependencies": {
+		"@angular/common": "^14.2.0",
+		"@angular/compiler": "^14.2.0",
+		"@angular/compiler-cli": "^14.2.0",
+		"@angular/core": "^14.2.0",
+		"@angular/platform-browser": "^14.2.0",
+		"@angular/platform-browser-dynamic": "^14.2.0",
+		"@compodoc/compodoc": "^1.1.18",
+		"@types/jasmine": "^3.10.3",
+		"@types/node": "^17.0.18",
+		"codelyzer": "^6.0.1",
+		"core-js": "^3.21.0",
+		"jasmine-core": "~4.0.0",
+		"jasmine-spec-reporter": "~7.0.0",
+		"karma": "^6.3.16",
+		"karma-chrome-launcher": "~3.1.0",
+		"karma-cli": "~2.0.0",
+		"karma-coverage-istanbul-reporter": "^3.0.2",
+		"karma-jasmine": "^4.0.1",
+		"karma-jasmine-html-reporter": "^1.5.3",
+		"ng-packagr": "^14.2.0",
+		"protractor": "~7.0.0",
+		"rxjs": "^7.5.4",
+		"ts-node": "^10.5.0",
+		"tslib": "^2.0.3",
+		"tslint": "^6.1.2",
+		"typescript": "~4.6.0",
+		"zone.js": "^0.11.3"
+	},
+	"engines": {
+		"node": ">=10.0.0"
+	}
 }
