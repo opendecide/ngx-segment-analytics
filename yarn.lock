@@ -2121,7 +2121,7 @@ __metadata:
     "@compodoc/compodoc": ^1.1.19
     "@segment/analytics-next": ^1.43.0
     "@types/jasmine": ^4.3.0
-    "@types/node": ^18.7.16
+    "@types/node": ^18.16.1
     codelyzer: ^6.0.2
     core-js: ^3.25.1
     jasmine-core: ~4.4.0
@@ -3479,10 +3479,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^18.7.16":
-  version: 18.7.16
-  resolution: "@types/node@npm:18.7.16"
-  checksum: 01a3d35c764a3f0e7370b56e1ad4203731131883c65784e020009014171b3f53c4649cde6c7aa4f1026b907ee87ef6ae6ece2bc518151dc7b81100fe8b1db3ad
+"@types/node@npm:^18.16.1":
+  version: 18.16.12
+  resolution: "@types/node@npm:18.16.12"
+  checksum: 90b316c097a059534870bc8e358c7996d99e3bb4395c88a91b893b925ad34e32ff1177009ec6c16a6467266414dca64ec9613e9e6bb3f91b6de0ab629d3bb3b9
   languageName: node
   linkType: hard
 
@@ -9844,7 +9844,7 @@ send@latest:
 
 "typescript@patch:typescript@^4.0.3#~builtin<compat/typescript>":
   version: 4.6.4
-  resolution: "typescript@patch:typescript@npm%3A4.6.4#~builtin<compat/typescript>::version=4.6.4&hash=bda367"
+  resolution: "typescript@patch:typescript@npm%3A4.6.4#~builtin<compat/typescript>::version=4.6.4&hash=701156"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
@@ -9854,7 +9854,7 @@ send@latest:
 
 "typescript@patch:typescript@~4.9.3#~builtin<compat/typescript>":
   version: 4.9.5
-  resolution: "typescript@patch:typescript@npm%3A4.9.5#~builtin<compat/typescript>::version=4.9.5&hash=bda367"
+  resolution: "typescript@patch:typescript@npm%3A4.9.5#~builtin<compat/typescript>::version=4.9.5&hash=701156"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
