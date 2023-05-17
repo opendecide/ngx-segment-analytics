@@ -2136,7 +2136,7 @@ __metadata:
     protractor: ~7.0.0
     rxjs: ^7.5.6
     ts-node: ^10.9.1
-    tslib: ^2.4.0
+    tslib: ^2.5.0
     tslint: ^6.1.3
     typescript: ~4.9.3
     zone.js: ^0.13.0
@@ -9730,6 +9730,13 @@ send@latest:
   languageName: node
   linkType: hard
 
+"tslib@npm:^2.5.0":
+  version: 2.5.0
+  resolution: "tslib@npm:2.5.0"
+  checksum: ae3ed5f9ce29932d049908ebfdf21b3a003a85653a9a140d614da6b767a93ef94f460e52c3d787f0e4f383546981713f165037dc2274df212ea9f8a4541004e1
+  languageName: node
+  linkType: hard
+
 "tslint@npm:^6.1.3":
   version: 6.1.3
   resolution: "tslint@npm:6.1.3"
@@ -9844,7 +9851,7 @@ send@latest:
 
 "typescript@patch:typescript@^4.0.3#~builtin<compat/typescript>":
   version: 4.6.4
-  resolution: "typescript@patch:typescript@npm%3A4.6.4#~builtin<compat/typescript>::version=4.6.4&hash=bda367"
+  resolution: "typescript@patch:typescript@npm%3A4.6.4#~builtin<compat/typescript>::version=4.6.4&hash=701156"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
@@ -9854,7 +9861,7 @@ send@latest:
 
 "typescript@patch:typescript@~4.9.3#~builtin<compat/typescript>":
   version: 4.9.5
-  resolution: "typescript@patch:typescript@npm%3A4.9.5#~builtin<compat/typescript>::version=4.9.5&hash=bda367"
+  resolution: "typescript@patch:typescript@npm%3A4.9.5#~builtin<compat/typescript>::version=4.9.5&hash=701156"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
