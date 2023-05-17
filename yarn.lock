@@ -2119,7 +2119,7 @@ __metadata:
     "@angular/platform-browser": ^16.0.0
     "@angular/platform-browser-dynamic": ^16.0.0
     "@compodoc/compodoc": ^1.1.19
-    "@segment/analytics-next": ^1.43.0
+    "@segment/analytics-next": ^1.51.6
     "@types/jasmine": ^4.3.0
     "@types/node": ^18.7.16
     codelyzer: ^6.0.2
@@ -2199,31 +2199,33 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@segment/analytics-core@npm:1.0.1":
-  version: 1.0.1
-  resolution: "@segment/analytics-core@npm:1.0.1"
+"@segment/analytics-core@npm:1.2.5":
+  version: 1.2.5
+  resolution: "@segment/analytics-core@npm:1.2.5"
   dependencies:
-    tslib: ^2.4.0
-  checksum: 7067c75fd4f567a2bf44718a307ca5a292b95d26c64c7c04e4f6202938cdddd7da0077d855ceba93ee7b820ce897e40fb80d8038c14ffbcc071cf5bf516d2847
+    "@lukeed/uuid": ^2.0.0
+    dset: ^3.1.2
+    tslib: ^2.4.1
+  checksum: 7563f0f8e0845b91c7f352d8c32497276560798c799f36dea07d041b7634b32137a87dbd8690f949c435d26d80d7d5bee172c5a3a2afa3adb2dd4f671e66c5a4
   languageName: node
   linkType: hard
 
-"@segment/analytics-next@npm:^1.43.0":
-  version: 1.43.0
-  resolution: "@segment/analytics-next@npm:1.43.0"
+"@segment/analytics-next@npm:^1.51.6":
+  version: 1.51.7
+  resolution: "@segment/analytics-next@npm:1.51.7"
   dependencies:
     "@lukeed/uuid": ^2.0.0
-    "@segment/analytics-core": 1.0.1
+    "@segment/analytics-core": 1.2.5
     "@segment/analytics.js-video-plugins": ^0.2.1
     "@segment/facade": ^3.4.9
-    "@segment/tsub": ^0.1.12
+    "@segment/tsub": 1.0.1
     dset: ^3.1.2
     js-cookie: 3.0.1
     node-fetch: ^2.6.7
     spark-md5: ^3.0.1
-    tslib: ^2.4.0
+    tslib: ^2.4.1
     unfetch: ^4.1.0
-  checksum: 1d63cfe5a121d81485170b091bcf5ec139c39a668036ee792fb9e4ea5905a8db7a7841a3068926d2d7b91d035db9500676805b318275347fc2563a566a4c2c37
+  checksum: d41e2dc83db76db38b08d3e195a18cd8d4b2b6909bb852db81b6018e8bb136deefad1dda5df462670f5df87f283a724f678846fa6bbc6ed4eafee79abea9a601
   languageName: node
   linkType: hard
 
@@ -2264,9 +2266,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@segment/tsub@npm:^0.1.12":
-  version: 0.1.12
-  resolution: "@segment/tsub@npm:0.1.12"
+"@segment/tsub@npm:1.0.1":
+  version: 1.0.1
+  resolution: "@segment/tsub@npm:1.0.1"
   dependencies:
     "@stdlib/math-base-special-ldexp": ^0.0.5
     dlv: ^1.1.3
@@ -2274,7 +2276,7 @@ __metadata:
     tiny-hashes: ^1.0.1
   bin:
     tsub: dist/index.js
-  checksum: 2bddf7b49c8cce94d22b642719be9cfee1641e953b73acb5a260722a5aef15691757c75a8b869669f2b37acbab8b9ecc3b32b88d0c668aa1e533f998a5ff3a3c
+  checksum: a5a1cedcc98dc19e09a3cb806906a457ef956a592079a14c8f88041b95fc32c876bc7df04d8c6d34b905fef128fd6dfec7222cf7fbd3302e1a4a47dcd4b8fa1a
   languageName: node
   linkType: hard
 
@@ -9730,6 +9732,13 @@ send@latest:
   languageName: node
   linkType: hard
 
+"tslib@npm:^2.4.1":
+  version: 2.5.0
+  resolution: "tslib@npm:2.5.0"
+  checksum: ae3ed5f9ce29932d049908ebfdf21b3a003a85653a9a140d614da6b767a93ef94f460e52c3d787f0e4f383546981713f165037dc2274df212ea9f8a4541004e1
+  languageName: node
+  linkType: hard
+
 "tslint@npm:^6.1.3":
   version: 6.1.3
   resolution: "tslint@npm:6.1.3"
@@ -9844,7 +9853,7 @@ send@latest:
 
 "typescript@patch:typescript@^4.0.3#~builtin<compat/typescript>":
   version: 4.6.4
-  resolution: "typescript@patch:typescript@npm%3A4.6.4#~builtin<compat/typescript>::version=4.6.4&hash=bda367"
+  resolution: "typescript@patch:typescript@npm%3A4.6.4#~builtin<compat/typescript>::version=4.6.4&hash=701156"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
@@ -9854,7 +9863,7 @@ send@latest:
 
 "typescript@patch:typescript@~4.9.3#~builtin<compat/typescript>":
   version: 4.9.5
-  resolution: "typescript@patch:typescript@npm%3A4.9.5#~builtin<compat/typescript>::version=4.9.5&hash=bda367"
+  resolution: "typescript@patch:typescript@npm%3A4.9.5#~builtin<compat/typescript>::version=4.9.5&hash=701156"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
