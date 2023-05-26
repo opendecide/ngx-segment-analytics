@@ -2079,7 +2079,7 @@ __metadata:
     "@types/node": ^18.16.14
     codelyzer: ^6.0.2
     core-js: ^3.30.2
-    jasmine-core: ~4.4.0
+    jasmine-core: ~4.6.0
     jasmine-spec-reporter: ~7.0.0
     karma: ^6.4.2
     karma-chrome-launcher: ~3.1.1
@@ -6749,10 +6749,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jasmine-core@npm:~4.4.0":
-  version: 4.4.0
-  resolution: "jasmine-core@npm:4.4.0"
-  checksum: b52e2f17080dd33628dee73c8b6eb9fbe793126a5e4ceb77ecf164f15fc44f6b29baa1e034992630a866522f470d62dc2f3c364b234af3487a9507c9d1ae0d94
+"jasmine-core@npm:~4.6.0":
+  version: 4.6.0
+  resolution: "jasmine-core@npm:4.6.0"
+  checksum: c5c5ce16c512cf0bc8b6b4f2d4f0ac7b23cae90624e0cd9d22da3baab3266e9a4da5a9363fb7937b16e0a4cf550bb79183cd74483ce55cfff4b6678434d599b7
   languageName: node
   linkType: hard
 
@@ -9772,7 +9772,7 @@ send@latest:
 
 "typescript@patch:typescript@^5.0.4#~builtin<compat/typescript>":
   version: 5.0.4
-  resolution: "typescript@patch:typescript@npm%3A5.0.4#~builtin<compat/typescript>::version=5.0.4&hash=bda367"
+  resolution: "typescript@patch:typescript@npm%3A5.0.4#~builtin<compat/typescript>::version=5.0.4&hash=701156"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
@@ -9782,7 +9782,7 @@ send@latest:
 
 "typescript@patch:typescript@~4.9.5#~builtin<compat/typescript>":
   version: 4.9.5
-  resolution: "typescript@patch:typescript@npm%3A4.9.5#~builtin<compat/typescript>::version=4.9.5&hash=bda367"
+  resolution: "typescript@patch:typescript@npm%3A4.9.5#~builtin<compat/typescript>::version=4.9.5&hash=701156"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
