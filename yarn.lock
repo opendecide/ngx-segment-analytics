@@ -2075,7 +2075,7 @@ __metadata:
     "@angular/platform-browser-dynamic": ^16.0.2
     "@compodoc/compodoc": ^1.1.21
     "@segment/analytics-next": ^1.51.7
-    "@types/jasmine": ^4.3.1
+    "@types/jasmine": ^4.3.2
     "@types/node": ^18.16.14
     codelyzer: ^6.0.2
     core-js: ^3.30.2
@@ -3422,10 +3422,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/jasmine@npm:^4.3.1":
-  version: 4.3.1
-  resolution: "@types/jasmine@npm:4.3.1"
-  checksum: d31fc78f7e70ed4aed20fa59400be3de9f204c473a7755aba29df90eb7d9d19d4b04b821a07e30732e67ef6021c8191eb259211264e287c053832c1940ae6e71
+"@types/jasmine@npm:^4.3.2":
+  version: 4.3.3
+  resolution: "@types/jasmine@npm:4.3.3"
+  checksum: 5a7aa618a25d139f598ccfeb50ff9c667579d3e5cba735455fdc8ffa4e1ffbc4ac299c0a85fbd3fe9bfaaf8999ffb4c6acbc68ea43a8f69facff34915a6ace61
   languageName: node
   linkType: hard
 
@@ -9772,7 +9772,7 @@ send@latest:
 
 "typescript@patch:typescript@^5.0.4#~builtin<compat/typescript>":
   version: 5.0.4
-  resolution: "typescript@patch:typescript@npm%3A5.0.4#~builtin<compat/typescript>::version=5.0.4&hash=bda367"
+  resolution: "typescript@patch:typescript@npm%3A5.0.4#~builtin<compat/typescript>::version=5.0.4&hash=701156"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
@@ -9782,7 +9782,7 @@ send@latest:
 
 "typescript@patch:typescript@~4.9.5#~builtin<compat/typescript>":
   version: 4.9.5
-  resolution: "typescript@patch:typescript@npm%3A4.9.5#~builtin<compat/typescript>::version=4.9.5&hash=bda367"
+  resolution: "typescript@patch:typescript@npm%3A4.9.5#~builtin<compat/typescript>::version=4.9.5&hash=701156"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
