@@ -149,7 +149,7 @@ export class SegmentService {
      *
      * @returns
      */
-    public identify(traits?: any, options?: any): Promise<SegmentService>;
+    public identify(traits: any, options?: any): Promise<SegmentService>;
 
     /**
      * The identify method is how you associate your users and their actions to a recognizable userId and traits.
@@ -160,7 +160,8 @@ export class SegmentService {
      *
      * @returns
      */
-    public identify(userId?: string, traits?: any, options?: any): Promise<SegmentService> {
+    public identify(userId: string, traits?: any, options?: any): Promise<SegmentService>;
+    public identify(userId: string, traits?: any, options?: any): Promise<SegmentService> {
         return new Promise((resolve) => {
             this._w.analytics.identify(userId, traits, options, _ => resolve(this));
         });
