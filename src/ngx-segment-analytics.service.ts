@@ -2,7 +2,9 @@ import {Inject, Injectable} from '@angular/core';
 import {DOCUMENT} from '@angular/common';
 import {DEFAULT_CONFIG, SEGMENT_CONFIG, SegmentConfig} from './ngx-segment-analytics.config';
 import {WindowWrapper} from './window-wrapper';
-import type {Plugin as NewSegmentPlugin} from '@segment/analytics-next';
+import type {Plugin as NewSegmentPlugin, InitOptions} from '@segment/analytics-next';
+
+// import type {DestinationMiddlewareParams, MiddlewareParams} from '@segment/analytics-next/src/plugins/middleware';
 
 export interface SegmentPlugin {
     // Video Plugins
@@ -12,7 +14,22 @@ export interface SegmentPlugin {
     new(): any;
 }
 
+/**
+ * @deprecated This type is incorrect
+ */
 export type SegmentMiddleware = ({integrations, payload, next}) => void;
+export type SegmentNextMiddleware = (payload: any) => void;
+export type SourceMiddleware = ({integrations, payload, next}: {
+    integrations: { [key: string]: any },
+    payload: any,
+    next: SegmentNextMiddleware,
+}) => void;
+export type DestinationMiddleware = ({integration, payload, next}: {
+    integration: string,
+    payload: any,
+    next: SegmentNextMiddleware,
+}) => void;
+
 
 @Injectable({
     providedIn: 'root',
@@ -80,7 +97,7 @@ export class SegmentService {
             ];
 
             this._w.analytics.factory = (method: string) => {
-                return (...args) => {
+                return (...args: any[]) => {
                     args.unshift(method);
                     this._w.analytics.push(args);
                     return this._w.analytics;
@@ -91,7 +108,7 @@ export class SegmentService {
                 this._w.analytics[method] = this._w.analytics.factory(method);
             });
 
-            this._w.analytics.load = (key: string, options: { integrations: { [key: string]: boolean } }) => {
+            this._w.analytics.load = (key: string, options: InitOptions) => {
                 const script = this._doc.createElement('script');
                 script.type = 'text/javascript';
                 script.async = true;
@@ -123,6 +140,16 @@ export class SegmentService {
         }
         this.debug(this._config.debug);
     }
+
+    /**
+     * The identify method is how you associate your users and their actions to a recognizable userId and traits.
+     *
+     * @param traits A dictionary of traits you know about the user, like their email or name
+     * @param options A dictionary of options.
+     *
+     * @returns
+     */
+    public identify(traits?: any, options?: any): Promise<SegmentService>;
 
     /**
      * The identify method is how you associate your users and their actions to a recognizable userId and traits.
@@ -334,21 +361,22 @@ export class SegmentService {
      *
      * @param middleware Custom function
      */
-    public addSourceMiddleware(middleware: SegmentMiddleware): void {
+    public addSourceMiddleware(middleware: SourceMiddleware): void {
         this._w.analytics.addSourceMiddleware(middleware);
     }
 
     /**
-     * Add a destination middleware called on events
+     * Add destination middlewares called on events
      *
      * @param integration Integration name
      * @param middlewares Custom functions
      */
-    public addDestinationMiddleware(integration: string, middlewares: SegmentMiddleware[]): void {
-        this._w.analytics.addDestinationMiddleware(integration, middlewares);
+    public addDestinationMiddleware(integration: string, ...middlewares: DestinationMiddleware[]): void {
+        this._w.analytics.addDestinationMiddleware(integration, ...middlewares);
     }
 
     /**
+     * Register plugins
      *
      * @param plugins
      */
