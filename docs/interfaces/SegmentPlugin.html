@@ -13,7 +13,7 @@
     </head>
     <body>
 
-        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
             <a href="../" class="navbar-brand">ngx-segment-analytics</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
@@ -44,23 +44,29 @@
 
 
 <ol class="breadcrumb">
-  <li>Interfaces</li>
-  <li
+  <li class="breadcrumb-item">Interfaces</li>
+  <li class="breadcrumb-item"
   >
   SegmentPlugin</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
-        <li class="active">
-            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
         </li>
-        <li >
-            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
         </li>
 </ul>
 
 <div class="tab-content">
-    <div class="tab-pane fade active in" id="c-info">
+    <div class="tab-pane fade active in" id="info">
         <p class="comment">
             <h3>File</h3>
         </p>
@@ -77,12 +83,14 @@
     </div>
 
 
-    <div class="tab-pane fade  tab-source-code" id="c-source">
+    <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Inject, Injectable} from &#x27;@angular/core&#x27;;
 import {DOCUMENT} from &#x27;@angular/common&#x27;;
 import {DEFAULT_CONFIG, SEGMENT_CONFIG, SegmentConfig} from &#x27;./ngx-segment-analytics.config&#x27;;
 import {WindowWrapper} from &#x27;./window-wrapper&#x27;;
-import type {Plugin as NewSegmentPlugin} from &#x27;@segment/analytics-next&#x27;;
+import type {Plugin as NewSegmentPlugin, InitOptions} from &#x27;@segment/analytics-next&#x27;;
+
+// import type {DestinationMiddlewareParams, MiddlewareParams} from &#x27;@segment/analytics-next/src/plugins/middleware&#x27;;
 
 export interface SegmentPlugin {
     // Video Plugins
@@ -92,7 +100,22 @@ export interface SegmentPlugin {
     new(): any;
 }
 
+/**
+ * @deprecated This type is incorrect
+ */
 export type SegmentMiddleware &#x3D; ({integrations, payload, next}) &#x3D;&gt; void;
+export type SegmentNextMiddleware &#x3D; (payload: any) &#x3D;&gt; void;
+export type SourceMiddleware &#x3D; ({integrations, payload, next}: {
+    integrations: { [key: string]: any },
+    payload: any,
+    next: SegmentNextMiddleware,
+}) &#x3D;&gt; void;
+export type DestinationMiddleware &#x3D; ({integration, payload, next}: {
+    integration: string,
+    payload: any,
+    next: SegmentNextMiddleware,
+}) &#x3D;&gt; void;
+
 
 @Injectable({
     providedIn: &#x27;root&#x27;,
@@ -160,7 +183,7 @@ export class SegmentService {
             ];
 
             this._w.analytics.factory &#x3D; (method: string) &#x3D;&gt; {
-                return (...args) &#x3D;&gt; {
+                return (...args: any[]) &#x3D;&gt; {
                     args.unshift(method);
                     this._w.analytics.push(args);
                     return this._w.analytics;
@@ -171,7 +194,7 @@ export class SegmentService {
                 this._w.analytics[method] &#x3D; this._w.analytics.factory(method);
             });
 
-            this._w.analytics.load &#x3D; (key: string, options: { integrations: { [key: string]: boolean } }) &#x3D;&gt; {
+            this._w.analytics.load &#x3D; (key: string, options: InitOptions) &#x3D;&gt; {
                 const script &#x3D; this._doc.createElement(&#x27;script&#x27;);
                 script.type &#x3D; &#x27;text/javascript&#x27;;
                 script.async &#x3D; true;
@@ -203,6 +226,16 @@ export class SegmentService {
         }
         this.debug(this._config.debug);
     }
+
+    /**
+     * The identify method is how you associate your users and their actions to a recognizable userId and traits.
+     *
+     * @param traits A dictionary of traits you know about the user, like their email or name
+     * @param options A dictionary of options.
+     *
+     * @returns
+     */
+    public identify(traits?: any, options?: any): Promise&lt;SegmentService&gt;;
 
     /**
      * The identify method is how you associate your users and their actions to a recognizable userId and traits.
@@ -414,21 +447,22 @@ export class SegmentService {
      *
      * @param middleware Custom function
      */
-    public addSourceMiddleware(middleware: SegmentMiddleware): void {
+    public addSourceMiddleware(middleware: SourceMiddleware): void {
         this._w.analytics.addSourceMiddleware(middleware);
     }
 
     /**
-     * Add a destination middleware called on events
+     * Add destination middlewares called on events
      *
      * @param integration Integration name
      * @param middlewares Custom functions
      */
-    public addDestinationMiddleware(integration: string, middlewares: SegmentMiddleware[]): void {
-        this._w.analytics.addDestinationMiddleware(integration, middlewares);
+    public addDestinationMiddleware(integration: string, ...middlewares: DestinationMiddleware[]): void {
+        this._w.analytics.addDestinationMiddleware(integration, ...middlewares);
     }
 
     /**
+     * Register plugins
      *
      * @param plugins
      */

@@ -13,7 +13,7 @@
     </head>
     <body>
 
-        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
             <a href="../" class="navbar-brand">ngx-segment-analytics</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
@@ -39,21 +39,27 @@
 
 
 <ol class="breadcrumb">
-  <li>Injectables</li>
-  <li >SegmentService</li>
+  <li class="breadcrumb-item">Injectables</li>
+  <li class="breadcrumb-item" >SegmentService</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
-        <li class="active">
-            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
         </li>
-        <li >
-            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
         </li>
 </ul>
 
 <div class="tab-content">
-    <div class="tab-pane fade active in" id="c-info">
+    <div class="tab-pane fade active in" id="info">
         <p class="comment">
             <h3>File</h3>
         </p>
@@ -65,7 +71,7 @@
 
 
 
-            <section>
+            <section data-compodoc="block-index">
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
         <tbody>
@@ -117,6 +123,10 @@
                             <li>
                                     <span class="modifier">Public</span>
                                 <a href="#id" >id</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#identify" >identify</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
@@ -208,7 +218,7 @@
     </table>
 </section>
 
-            <section>
+            <section data-compodoc="block-constructor">
     <h3 id="constructor">Constructor</h3>
         <table class="table table-sm table-bordered">
             <tbody>
@@ -219,7 +229,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/ngx-segment-analytics.service.ts:22</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/ngx-segment-analytics.service.ts:39</a></div>
                             </td>
                         </tr>
 
@@ -294,7 +304,7 @@
         </table>
 </section>
 
-            <section>
+            <section data-compodoc="block-methods">
     
     <h3 id="methods">
         Methods
@@ -314,22 +324,22 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>addDestinationMiddleware(integration: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, middlewares: <a href="../undefineds/SegmentMiddleware.html" target="_self">SegmentMiddleware[]</a>)</code>
+                    <code>addDestinationMiddleware(integration: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, middlewares: <a href="../undefineds/DestinationMiddleware.html" target="_self">DestinationMiddleware[]</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="347"
-                            class="link-to-prism">src/ngx-segment-analytics.service.ts:347</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="374"
+                            class="link-to-prism">src/ngx-segment-analytics.service.ts:374</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Add a destination middleware called on events</p>
+                    <div class="io-description"><p>Add destination middlewares called on events</p>
 </div>
 
                     <div class="io-description">
@@ -364,7 +374,7 @@
                                 <tr>
                                     <td>middlewares</td>
                                     <td>
-                                                <code><a href="../miscellaneous/typealiases.html#SegmentMiddleware" target="_self" >SegmentMiddleware[]</a></code>
+                                                <code><a href="../miscellaneous/typealiases.html#DestinationMiddleware" target="_self" >DestinationMiddleware[]</a></code>
                                     </td>
 
                                     <td>
@@ -408,15 +418,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>addSourceMiddleware(middleware: <a href="../undefineds/SegmentMiddleware.html" target="_self">SegmentMiddleware</a>)</code>
+                    <code>addSourceMiddleware(middleware: <a href="../undefineds/SourceMiddleware.html" target="_self">SourceMiddleware</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="337"
-                            class="link-to-prism">src/ngx-segment-analytics.service.ts:337</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="364"
+                            class="link-to-prism">src/ngx-segment-analytics.service.ts:364</a></div>
                 </td>
             </tr>
 
@@ -442,7 +452,7 @@
                                 <tr>
                                     <td>middleware</td>
                                     <td>
-                                                <code><a href="../miscellaneous/typealiases.html#SegmentMiddleware" target="_self" >SegmentMiddleware</a></code>
+                                                <code><a href="../miscellaneous/typealiases.html#SourceMiddleware" target="_self" >SourceMiddleware</a></code>
                                     </td>
 
                                     <td>
@@ -493,8 +503,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="220"
-                            class="link-to-prism">src/ngx-segment-analytics.service.ts:220</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="247"
+                            class="link-to-prism">src/ngx-segment-analytics.service.ts:247</a></div>
                 </td>
             </tr>
 
@@ -603,8 +613,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="286"
-                            class="link-to-prism">src/ngx-segment-analytics.service.ts:286</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="313"
+                            class="link-to-prism">src/ngx-segment-analytics.service.ts:313</a></div>
                 </td>
             </tr>
 
@@ -681,8 +691,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="205"
-                            class="link-to-prism">src/ngx-segment-analytics.service.ts:205</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="232"
+                            class="link-to-prism">src/ngx-segment-analytics.service.ts:232</a></div>
                 </td>
             </tr>
 
@@ -776,8 +786,8 @@ assemblage, cluster, troop, gang, party, society or any other name you came up w
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="252"
-                            class="link-to-prism">src/ngx-segment-analytics.service.ts:252</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="279"
+                            class="link-to-prism">src/ngx-segment-analytics.service.ts:279</a></div>
                 </td>
             </tr>
 
@@ -816,6 +826,100 @@ assemblage, cluster, troop, gang, party, society or any other name you came up w
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>identify(traits?: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, options?: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="152"
+                            class="link-to-prism">src/ngx-segment-analytics.service.ts:152</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>The identify method is how you associate your users and their actions to a recognizable userId and traits.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>traits</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                    <td>
+                                        <p>A dictionary of traits you know about the user, like their email or name</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>options</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                    <td>
+                                        <p>A dictionary of options.</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../injectables/SegmentService.html" target="_self" >Promise&lt;SegmentService&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="identify"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span ><b>identify</b></span>
+                        <a href="#identify"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
                     <code>identify(userId?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, traits?: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, options?: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
                 </td>
             </tr>
@@ -823,8 +927,8 @@ assemblage, cluster, troop, gang, party, society or any other name you came up w
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="136"
-                            class="link-to-prism">src/ngx-segment-analytics.service.ts:136</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="163"
+                            class="link-to-prism">src/ngx-segment-analytics.service.ts:163</a></div>
                 </td>
             </tr>
 
@@ -933,8 +1037,8 @@ assemblage, cluster, troop, gang, party, society or any other name you came up w
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="119"
-                            class="link-to-prism">src/ngx-segment-analytics.service.ts:119</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="136"
+                            class="link-to-prism">src/ngx-segment-analytics.service.ts:136</a></div>
                 </td>
             </tr>
 
@@ -1027,8 +1131,8 @@ assemblage, cluster, troop, gang, party, society or any other name you came up w
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="296"
-                            class="link-to-prism">src/ngx-segment-analytics.service.ts:296</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="323"
+                            class="link-to-prism">src/ngx-segment-analytics.service.ts:323</a></div>
                 </td>
             </tr>
 
@@ -1121,8 +1225,8 @@ assemblage, cluster, troop, gang, party, society or any other name you came up w
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="166"
-                            class="link-to-prism">src/ngx-segment-analytics.service.ts:166</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="193"
+                            class="link-to-prism">src/ngx-segment-analytics.service.ts:193</a></div>
                 </td>
             </tr>
 
@@ -1231,8 +1335,8 @@ assemblage, cluster, troop, gang, party, society or any other name you came up w
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="178"
-                            class="link-to-prism">src/ngx-segment-analytics.service.ts:178</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="205"
+                            class="link-to-prism">src/ngx-segment-analytics.service.ts:205</a></div>
                 </td>
             </tr>
 
@@ -1357,8 +1461,8 @@ assemblage, cluster, troop, gang, party, society or any other name you came up w
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="190"
-                            class="link-to-prism">src/ngx-segment-analytics.service.ts:190</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="217"
+                            class="link-to-prism">src/ngx-segment-analytics.service.ts:217</a></div>
                 </td>
             </tr>
 
@@ -1483,8 +1587,8 @@ assemblage, cluster, troop, gang, party, society or any other name you came up w
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="232"
-                            class="link-to-prism">src/ngx-segment-analytics.service.ts:232</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="259"
+                            class="link-to-prism">src/ngx-segment-analytics.service.ts:259</a></div>
                 </td>
             </tr>
 
@@ -1530,14 +1634,16 @@ and analytics.js has completed initialization.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="355"
-                            class="link-to-prism">src/ngx-segment-analytics.service.ts:355</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="383"
+                            class="link-to-prism">src/ngx-segment-analytics.service.ts:383</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Register plugins</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -1601,8 +1707,8 @@ and analytics.js has completed initialization.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="277"
-                            class="link-to-prism">src/ngx-segment-analytics.service.ts:277</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="304"
+                            class="link-to-prism">src/ngx-segment-analytics.service.ts:304</a></div>
                 </td>
             </tr>
 
@@ -1642,8 +1748,8 @@ and analytics.js has completed initialization.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="261"
-                            class="link-to-prism">src/ngx-segment-analytics.service.ts:261</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="288"
+                            class="link-to-prism">src/ngx-segment-analytics.service.ts:288</a></div>
                 </td>
             </tr>
 
@@ -1720,8 +1826,8 @@ and analytics.js has completed initialization.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="328"
-                            class="link-to-prism">src/ngx-segment-analytics.service.ts:328</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="355"
+                            class="link-to-prism">src/ngx-segment-analytics.service.ts:355</a></div>
                 </td>
             </tr>
 
@@ -1798,8 +1904,8 @@ and analytics.js has completed initialization.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="151"
-                            class="link-to-prism">src/ngx-segment-analytics.service.ts:151</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="178"
+                            class="link-to-prism">src/ngx-segment-analytics.service.ts:178</a></div>
                 </td>
             </tr>
 
@@ -1908,8 +2014,8 @@ and analytics.js has completed initialization.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="319"
-                            class="link-to-prism">src/ngx-segment-analytics.service.ts:319</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="346"
+                            class="link-to-prism">src/ngx-segment-analytics.service.ts:346</a></div>
                 </td>
             </tr>
 
@@ -2018,8 +2124,8 @@ and analytics.js has completed initialization.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="308"
-                            class="link-to-prism">src/ngx-segment-analytics.service.ts:308</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="335"
+                            class="link-to-prism">src/ngx-segment-analytics.service.ts:335</a></div>
                 </td>
             </tr>
 
@@ -2129,8 +2235,8 @@ as the name of the track event.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="270"
-                            class="link-to-prism">src/ngx-segment-analytics.service.ts:270</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="297"
+                            class="link-to-prism">src/ngx-segment-analytics.service.ts:297</a></div>
                 </td>
             </tr>
 
@@ -2176,8 +2282,8 @@ as the name of the track event.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="243"
-                            class="link-to-prism">src/ngx-segment-analytics.service.ts:243</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="270"
+                            class="link-to-prism">src/ngx-segment-analytics.service.ts:270</a></div>
                 </td>
             </tr>
 
@@ -2202,7 +2308,7 @@ as the name of the track event.</p>
         </tbody>
     </table>
 </section>
-            <section>
+            <section data-compodoc="block-properties">
     
     <h3 id="inputs">
         Properties
@@ -2228,7 +2334,7 @@ as the name of the track event.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/ngx-segment-analytics.service.ts:22</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/ngx-segment-analytics.service.ts:39</a></div>
                         </td>
                     </tr>
 
@@ -2237,7 +2343,7 @@ as the name of the track event.</p>
     </table>
 </section>
 
-            <section>
+            <section data-compodoc="block-accessors">
     <h3 id="accessors">
         Accessors
     </h3>
@@ -2257,7 +2363,7 @@ as the name of the track event.</p>
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="364" class="link-to-prism">src/ngx-segment-analytics.service.ts:364</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="392" class="link-to-prism">src/ngx-segment-analytics.service.ts:392</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -2280,12 +2386,14 @@ as the name of the track event.</p>
     </div>
 
 
-    <div class="tab-pane fade  tab-source-code" id="c-source">
+    <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Inject, Injectable} from &#x27;@angular/core&#x27;;
 import {DOCUMENT} from &#x27;@angular/common&#x27;;
 import {DEFAULT_CONFIG, SEGMENT_CONFIG, SegmentConfig} from &#x27;./ngx-segment-analytics.config&#x27;;
 import {WindowWrapper} from &#x27;./window-wrapper&#x27;;
-import type {Plugin as NewSegmentPlugin} from &#x27;@segment/analytics-next&#x27;;
+import type {Plugin as NewSegmentPlugin, InitOptions} from &#x27;@segment/analytics-next&#x27;;
+
+// import type {DestinationMiddlewareParams, MiddlewareParams} from &#x27;@segment/analytics-next/src/plugins/middleware&#x27;;
 
 export interface SegmentPlugin {
     // Video Plugins
@@ -2295,7 +2403,22 @@ export interface SegmentPlugin {
     new(): any;
 }
 
+/**
+ * @deprecated This type is incorrect
+ */
 export type SegmentMiddleware &#x3D; ({integrations, payload, next}) &#x3D;&gt; void;
+export type SegmentNextMiddleware &#x3D; (payload: any) &#x3D;&gt; void;
+export type SourceMiddleware &#x3D; ({integrations, payload, next}: {
+    integrations: { [key: string]: any },
+    payload: any,
+    next: SegmentNextMiddleware,
+}) &#x3D;&gt; void;
+export type DestinationMiddleware &#x3D; ({integration, payload, next}: {
+    integration: string,
+    payload: any,
+    next: SegmentNextMiddleware,
+}) &#x3D;&gt; void;
+
 
 @Injectable({
     providedIn: &#x27;root&#x27;,
@@ -2363,7 +2486,7 @@ export class SegmentService {
             ];
 
             this._w.analytics.factory &#x3D; (method: string) &#x3D;&gt; {
-                return (...args) &#x3D;&gt; {
+                return (...args: any[]) &#x3D;&gt; {
                     args.unshift(method);
                     this._w.analytics.push(args);
                     return this._w.analytics;
@@ -2374,7 +2497,7 @@ export class SegmentService {
                 this._w.analytics[method] &#x3D; this._w.analytics.factory(method);
             });
 
-            this._w.analytics.load &#x3D; (key: string, options: { integrations: { [key: string]: boolean } }) &#x3D;&gt; {
+            this._w.analytics.load &#x3D; (key: string, options: InitOptions) &#x3D;&gt; {
                 const script &#x3D; this._doc.createElement(&#x27;script&#x27;);
                 script.type &#x3D; &#x27;text/javascript&#x27;;
                 script.async &#x3D; true;
@@ -2406,6 +2529,16 @@ export class SegmentService {
         }
         this.debug(this._config.debug);
     }
+
+    /**
+     * The identify method is how you associate your users and their actions to a recognizable userId and traits.
+     *
+     * @param traits A dictionary of traits you know about the user, like their email or name
+     * @param options A dictionary of options.
+     *
+     * @returns
+     */
+    public identify(traits?: any, options?: any): Promise&lt;SegmentService&gt;;
 
     /**
      * The identify method is how you associate your users and their actions to a recognizable userId and traits.
@@ -2617,21 +2750,22 @@ export class SegmentService {
      *
      * @param middleware Custom function
      */
-    public addSourceMiddleware(middleware: SegmentMiddleware): void {
+    public addSourceMiddleware(middleware: SourceMiddleware): void {
         this._w.analytics.addSourceMiddleware(middleware);
     }
 
     /**
-     * Add a destination middleware called on events
+     * Add destination middlewares called on events
      *
      * @param integration Integration name
      * @param middlewares Custom functions
      */
-    public addDestinationMiddleware(integration: string, middlewares: SegmentMiddleware[]): void {
-        this._w.analytics.addDestinationMiddleware(integration, middlewares);
+    public addDestinationMiddleware(integration: string, ...middlewares: DestinationMiddleware[]): void {
+        this._w.analytics.addDestinationMiddleware(integration, ...middlewares);
     }
 
     /**
+     * Register plugins
      *
      * @param plugins
      */
