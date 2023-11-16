@@ -8,8 +8,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "ngx-segment-analytics@workspace:."
   peerDependencies:
-    "@angular/common": ">=12.0.0 <17.0.0"
-    "@angular/core": ">=12.0.0 <17.0.0"
+    "@angular/common": ">=12.0.0 <18.0.0"
+    "@angular/core": ">=12.0.0 <18.0.0"
     "@segment/analytics-next": ^1.35.1
   languageName: unknown
   linkType: soft
