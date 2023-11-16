@@ -1,6 +1,6 @@
 {
   "name": "ngx-segment-analytics",
-  "version": "16.1.0",
+  "version": "17.0.0",
   "description": "Segment Analytics for Angular",
   "repository": {
     "type": "git",
@@ -19,8 +19,8 @@
     "url": "https://github.com/opendecide/ngx-segment-analytics/issues"
   },
   "peerDependencies": {
-    "@angular/common": ">=12.0.0 <17.0.0",
-    "@angular/core": ">=12.0.0 <17.0.0",
+    "@angular/common": ">=12.0.0 <18.0.0",
+    "@angular/core": ">=12.0.0 <18.0.0",
     "@segment/analytics-next": "^1.35.1"
   }
 }
