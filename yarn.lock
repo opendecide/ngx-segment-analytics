@@ -2410,7 +2410,7 @@ __metadata:
     "@segment/analytics-next": ^1.53.3
     "@types/jasmine": ^4.3.5
     "@types/node": ^18.17.3
-    "@typescript-eslint/eslint-plugin": ^6.3.0
+    "@typescript-eslint/eslint-plugin": ^6.9.0
     "@typescript-eslint/parser": ^6.3.0
     codelyzer: ^6.0.2
     core-js: ^3.32.0
@@ -3897,20 +3897,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/eslint-plugin@npm:^6.3.0":
-  version: 6.3.0
-  resolution: "@typescript-eslint/eslint-plugin@npm:6.3.0"
+"@typescript-eslint/eslint-plugin@npm:^6.9.0":
+  version: 6.11.0
+  resolution: "@typescript-eslint/eslint-plugin@npm:6.11.0"
   dependencies:
     "@eslint-community/regexpp": ^4.5.1
-    "@typescript-eslint/scope-manager": 6.3.0
-    "@typescript-eslint/type-utils": 6.3.0
-    "@typescript-eslint/utils": 6.3.0
-    "@typescript-eslint/visitor-keys": 6.3.0
+    "@typescript-eslint/scope-manager": 6.11.0
+    "@typescript-eslint/type-utils": 6.11.0
+    "@typescript-eslint/utils": 6.11.0
+    "@typescript-eslint/visitor-keys": 6.11.0
     debug: ^4.3.4
     graphemer: ^1.4.0
     ignore: ^5.2.4
     natural-compare: ^1.4.0
-    natural-compare-lite: ^1.4.0
     semver: ^7.5.4
     ts-api-utils: ^1.0.1
   peerDependencies:
@@ -3919,7 +3918,7 @@ __metadata:
   peerDependenciesMeta:
     typescript:
       optional: true
-  checksum: 1493c6c661993640eef56893a7919cb964165cb46653c62468e71ce02a5ec8c654dd7e9767587aea67ec16c026a5630011bc7ea6c04e2fa8a4afee7f26a51358
+  checksum: 8ba9ce7ce8609a044e405baf57cc84d6973d7676950c870288d7eae2dba44b36664e3f4d90b94a4de08e17259fe8baa7790750cd4e5391dbe2a2743497d7fae2
   languageName: node
   linkType: hard
 
@@ -3975,23 +3974,6 @@ __metadata:
     typescript:
       optional: true
   checksum: 2effbe62ae3b12f8a88663072f68a5dcb1135d9ee3c09a0d9fcf49b943837c0a5966e907d4a1a15c27ddf82af2fcf7f6e004655d3e1f7a17c21596469771ff7d
-  languageName: node
-  linkType: hard
-
-"@typescript-eslint/type-utils@npm:6.3.0":
-  version: 6.3.0
-  resolution: "@typescript-eslint/type-utils@npm:6.3.0"
-  dependencies:
-    "@typescript-eslint/typescript-estree": 6.3.0
-    "@typescript-eslint/utils": 6.3.0
-    debug: ^4.3.4
-    ts-api-utils: ^1.0.1
-  peerDependencies:
-    eslint: ^7.0.0 || ^8.0.0
-  peerDependenciesMeta:
-    typescript:
-      optional: true
-  checksum: cf2ab9d576bc9f3c0554318d20cb92671e4f46a07c24271fc47f144139b3843dab54592ee2e0962f81ad588f57a0b0a7c09d7e1047c720143a54bb1ec3ac4007
   languageName: node
   linkType: hard
 
@@ -4059,23 +4041,6 @@ __metadata:
   peerDependencies:
     eslint: ^7.0.0 || ^8.0.0
   checksum: e90aa2c8c56038a48de65a5303f9e4a4a70bb0d4d0a05cfcd28157fc0f06b2fc186c2e76a495f4540a903ea37577daa1403bab923d940114ec27a6326153d60f
-  languageName: node
-  linkType: hard
-
-"@typescript-eslint/utils@npm:6.3.0":
-  version: 6.3.0
-  resolution: "@typescript-eslint/utils@npm:6.3.0"
-  dependencies:
-    "@eslint-community/eslint-utils": ^4.4.0
-    "@types/json-schema": ^7.0.12
-    "@types/semver": ^7.5.0
-    "@typescript-eslint/scope-manager": 6.3.0
-    "@typescript-eslint/types": 6.3.0
-    "@typescript-eslint/typescript-estree": 6.3.0
-    semver: ^7.5.4
-  peerDependencies:
-    eslint: ^7.0.0 || ^8.0.0
-  checksum: 98a078a3948e8b6a45dec8f3be9bcb72dc98faa2fe84336b1925efb7caa06c05a2fbf7290cddb420465b415cc05252548e2b839b9311f99bce84cf856fd32888
   languageName: node
   linkType: hard
 
@@ -8628,13 +8593,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"natural-compare-lite@npm:^1.4.0":
-  version: 1.4.0
-  resolution: "natural-compare-lite@npm:1.4.0"
-  checksum: 5222ac3986a2b78dd6069ac62cbb52a7bf8ffc90d972ab76dfe7b01892485d229530ed20d0c62e79a6b363a663b273db3bde195a1358ce9e5f779d4453887225
-  languageName: node
-  linkType: hard
-
 "natural-compare@npm:^1.4.0":
   version: 1.4.0
   resolution: "natural-compare@npm:1.4.0"
@@ -10878,7 +10836,7 @@ send@latest:
 
 "typescript@patch:typescript@^5.0.4#~builtin<compat/typescript>":
   version: 5.0.4
-  resolution: "typescript@patch:typescript@npm%3A5.0.4#~builtin<compat/typescript>::version=5.0.4&hash=bda367"
+  resolution: "typescript@patch:typescript@npm%3A5.0.4#~builtin<compat/typescript>::version=5.0.4&hash=701156"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
@@ -10888,7 +10846,7 @@ send@latest:
 
 "typescript@patch:typescript@~5.2.2#~builtin<compat/typescript>":
   version: 5.2.2
-  resolution: "typescript@patch:typescript@npm%3A5.2.2#~builtin<compat/typescript>::version=5.2.2&hash=bda367"
+  resolution: "typescript@patch:typescript@npm%3A5.2.2#~builtin<compat/typescript>::version=5.2.2&hash=701156"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
