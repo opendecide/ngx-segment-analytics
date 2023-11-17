@@ -2407,7 +2407,7 @@ __metadata:
     "@angular/platform-browser": ^17.0.3
     "@angular/platform-browser-dynamic": ^17.0.3
     "@compodoc/compodoc": ^1.1.21
-    "@segment/analytics-next": ^1.53.3
+    "@segment/analytics-next": ^1.59.0
     "@types/jasmine": ^4.3.5
     "@types/node": ^18.17.3
     "@typescript-eslint/eslint-plugin": ^6.3.0
@@ -2573,23 +2573,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@segment/analytics-core@npm:1.3.0":
-  version: 1.3.0
-  resolution: "@segment/analytics-core@npm:1.3.0"
+"@segment/analytics-core@npm:1.3.2":
+  version: 1.3.2
+  resolution: "@segment/analytics-core@npm:1.3.2"
   dependencies:
     "@lukeed/uuid": ^2.0.0
     dset: ^3.1.2
     tslib: ^2.4.1
-  checksum: 1d8822b61e1e7db75e1ce903c59626c7eff297ed42bbf903f9a8f8a9cd69cce8d05438c6b45c5de2cf15e0695038dd0a9def45faf078e37ef0903f5664518a74
+  checksum: d3402a0de749eb94253feb45961f12483660fc8ee170f226be3c26b1d5b94df035a99f1f189e375c44f2b6b9b824b7485c47d35806ab0bad362989699521caca
   languageName: node
   linkType: hard
 
-"@segment/analytics-next@npm:^1.53.3":
-  version: 1.53.3
-  resolution: "@segment/analytics-next@npm:1.53.3"
+"@segment/analytics-next@npm:^1.59.0":
+  version: 1.61.0
+  resolution: "@segment/analytics-next@npm:1.61.0"
   dependencies:
     "@lukeed/uuid": ^2.0.0
-    "@segment/analytics-core": 1.3.0
+    "@segment/analytics-core": 1.3.2
     "@segment/analytics.js-video-plugins": ^0.2.1
     "@segment/facade": ^3.4.9
     "@segment/tsub": ^2.0.0
@@ -2599,7 +2599,7 @@ __metadata:
     spark-md5: ^3.0.1
     tslib: ^2.4.1
     unfetch: ^4.1.0
-  checksum: d58565b671ee68b38dbed83ea662e4b4ad6ee3bc9fabef5a098bc4605f943d8e765fc193b0f40af8e97da2812f2cefaf745706bdbe4a51f28b5aaff3a366b04d
+  checksum: e0d2d3d3a0b98320bbef1ac726c275607b51b555525325d883266bb4029a97187a3b4fe224f9338b7a292cfad055b2d21ff71f5db98b5e72c9b4317aada60572
   languageName: node
   linkType: hard
 
@@ -10878,7 +10878,7 @@ send@latest:
 
 "typescript@patch:typescript@^5.0.4#~builtin<compat/typescript>":
   version: 5.0.4
-  resolution: "typescript@patch:typescript@npm%3A5.0.4#~builtin<compat/typescript>::version=5.0.4&hash=bda367"
+  resolution: "typescript@patch:typescript@npm%3A5.0.4#~builtin<compat/typescript>::version=5.0.4&hash=701156"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
@@ -10888,7 +10888,7 @@ send@latest:
 
 "typescript@patch:typescript@~5.2.2#~builtin<compat/typescript>":
   version: 5.2.2
-  resolution: "typescript@patch:typescript@npm%3A5.2.2#~builtin<compat/typescript>::version=5.2.2&hash=bda367"
+  resolution: "typescript@patch:typescript@npm%3A5.2.2#~builtin<compat/typescript>::version=5.2.2&hash=701156"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver

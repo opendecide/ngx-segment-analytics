@@ -38,7 +38,7 @@
     "@angular/platform-browser": "^17.0.3",
     "@angular/platform-browser-dynamic": "^17.0.3",
     "@compodoc/compodoc": "^1.1.21",
-    "@segment/analytics-next": "^1.53.3",
+    "@segment/analytics-next": "^1.59.0",
     "@types/jasmine": "^4.3.5",
     "@types/node": "^18.17.3",
     "@typescript-eslint/eslint-plugin": "^6.3.0",
