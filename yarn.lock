@@ -67,6 +67,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@angular-eslint/bundled-angular-compiler@npm:17.2.1":
+  version: 17.2.1
+  resolution: "@angular-eslint/bundled-angular-compiler@npm:17.2.1"
+  checksum: 79b00e4ff7f3c57ea747c4293044da65ded5e4c268ea124eac35618e534d9f1289c956cdbca1c0f56977c93d8514f24639b10aecf45ee3744e04a991ca51a2b1
+  languageName: node
+  linkType: hard
+
 "@angular-eslint/eslint-plugin-template@npm:^17.1.0":
   version: 17.1.0
   resolution: "@angular-eslint/eslint-plugin-template@npm:17.1.0"
@@ -97,16 +104,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular-eslint/template-parser@npm:^17.1.0":
-  version: 17.1.0
-  resolution: "@angular-eslint/template-parser@npm:17.1.0"
+"@angular-eslint/template-parser@npm:^17.2.1":
+  version: 17.2.1
+  resolution: "@angular-eslint/template-parser@npm:17.2.1"
   dependencies:
-    "@angular-eslint/bundled-angular-compiler": 17.1.0
-    eslint-scope: ^7.0.0
+    "@angular-eslint/bundled-angular-compiler": 17.2.1
+    eslint-scope: ^8.0.0
   peerDependencies:
     eslint: ^7.20.0 || ^8.0.0
     typescript: "*"
-  checksum: 2afcabf853c2bea0f7c232ef8ce4d60b339a51321ed5ba34b9f4bfe871dd48703502b03d00db44afea47555dce5f583fba0c7816129ffac2af50badfa4d1d94e
+  checksum: 7f8fb9765f42b500f2eb87bffe8803eccf678a8bffc959897ce73812194b8c698ccb92abb7249e759213a1472f9f5568d931b67787abb262afb78410bc729252
   languageName: node
   linkType: hard
 
@@ -2399,7 +2406,7 @@ __metadata:
   dependencies:
     "@angular-eslint/eslint-plugin": ^17.1.0
     "@angular-eslint/eslint-plugin-template": ^17.1.0
-    "@angular-eslint/template-parser": ^17.1.0
+    "@angular-eslint/template-parser": ^17.2.1
     "@angular/common": ^17.0.3
     "@angular/compiler": ^17.0.3
     "@angular/compiler-cli": ^17.0.3
@@ -6208,13 +6215,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-scope@npm:^7.0.0, eslint-scope@npm:^7.2.2":
+"eslint-scope@npm:^7.2.2":
   version: 7.2.2
   resolution: "eslint-scope@npm:7.2.2"
   dependencies:
     esrecurse: ^4.3.0
     estraverse: ^5.2.0
   checksum: ec97dbf5fb04b94e8f4c5a91a7f0a6dd3c55e46bfc7bbcd0e3138c3a76977570e02ed89a1810c778dcd72072ff0e9621ba1379b4babe53921d71e2e4486fda3e
+  languageName: node
+  linkType: hard
+
+"eslint-scope@npm:^8.0.0":
+  version: 8.0.0
+  resolution: "eslint-scope@npm:8.0.0"
+  dependencies:
+    esrecurse: ^4.3.0
+    estraverse: ^5.2.0
+  checksum: d12e4a032df5e4c9df3b544273498cff6c2a278233334362da7fbb85b420fecc985b0684b4cde52d7ce79e408094eae18b2e1814f51d705cac848da3bc6ebeeb
   languageName: node
   linkType: hard
 
@@ -10878,7 +10895,7 @@ send@latest:
 
 "typescript@patch:typescript@^5.0.4#~builtin<compat/typescript>":
   version: 5.0.4
-  resolution: "typescript@patch:typescript@npm%3A5.0.4#~builtin<compat/typescript>::version=5.0.4&hash=bda367"
+  resolution: "typescript@patch:typescript@npm%3A5.0.4#~builtin<compat/typescript>::version=5.0.4&hash=701156"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
@@ -10888,7 +10905,7 @@ send@latest:
 
 "typescript@patch:typescript@~5.2.2#~builtin<compat/typescript>":
   version: 5.2.2
-  resolution: "typescript@patch:typescript@npm%3A5.2.2#~builtin<compat/typescript>::version=5.2.2&hash=bda367"
+  resolution: "typescript@patch:typescript@npm%3A5.2.2#~builtin<compat/typescript>::version=5.2.2&hash=701156"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
