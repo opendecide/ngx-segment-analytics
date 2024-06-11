@@ -179,13 +179,13 @@
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                        <i>Type : </i>    <code>AnalyticsSnippet</code>
 
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/window-wrapper.ts:9</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/window-wrapper.ts:10</a></div>
                         </td>
                     </tr>
 
@@ -205,6 +205,7 @@
 
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Injectable} from &#x27;@angular/core&#x27;;
+import type { AnalyticsSnippet } from &quot;@segment/analytics-next&quot;;
 
 /**
  * Window Wrapper for Angular AOT
@@ -212,7 +213,7 @@
 @Injectable()
 export class WindowWrapper {
     /** Segment Analytics.js instance */
-    public analytics: any;
+    public analytics: AnalyticsSnippet;
 }
 </code></pre>
     </div>

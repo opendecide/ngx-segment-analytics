@@ -11,10 +11,18 @@ export interface SegmentConfig {
     debug?: boolean;
     /** Load Segment configuration on initialization */
     loadOnInitialization?: boolean;
-    /** Segment Host if requests are proxied **/
+    /**
+     * Segment Host if requests are proxied
+     * @deprecated Use cdnURL instead.
+     **/
     segmentHost?: string;
-    /** Segment Custom URI **/
+    /**
+     *  Segment Custom URI
+     *  @deprecated Use cdnURL instead.
+     **/
     segmentUri?: string;
+    /** CDN host if requests are proxied */
+    cdnURL?: string;
     /** Plugins **/
     plugins?: Plugin[];
 }
@@ -25,6 +33,7 @@ export const SEGMENT_CONFIG: InjectionToken<SegmentConfig> = new InjectionToken<
 export const DEFAULT_CONFIG: SegmentConfig = {
     debug: false,
     loadOnInitialization: true, // Compatibility < 1.2.5
+    cdnURL: 'https://cdn.segment.com',
     segmentHost: 'cdn.segment.com',
     segmentUri: '/analytics.js/v1/$API_KEY$/analytics.min.js',
     plugins: [],
