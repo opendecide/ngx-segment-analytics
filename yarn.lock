@@ -193,18 +193,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular/core@npm:^18.0.2":
-  version: 18.0.2
-  resolution: "@angular/core@npm:18.0.2"
-  dependencies:
-    tslib: "npm:^2.3.0"
-  peerDependencies:
-    rxjs: ^6.5.3 || ^7.4.0
-    zone.js: ~0.14.0
-  checksum: 10c0/b5a6ca24c7d7ad46aebfd6ed7e1031faae311a6e0ece0e7472c8c16105bddbc1fd3d7f16d6bbbfb5bcbbe387656fd392ae689ab8845efc69698db4e7c37c4ad5
-  languageName: node
-  linkType: hard
-
 "@angular/platform-browser-dynamic@npm:^18.0.2":
   version: 18.0.2
   resolution: "@angular/platform-browser-dynamic@npm:18.0.2"
@@ -2280,7 +2268,6 @@ __metadata:
     "@angular/common": "npm:^18.0.2"
     "@angular/compiler": "npm:^18.0.2"
     "@angular/compiler-cli": "npm:^18.0.2"
-    "@angular/core": "npm:^18.0.2"
     "@angular/platform-browser": "npm:^18.0.2"
     "@angular/platform-browser-dynamic": "npm:^18.0.2"
     "@compodoc/compodoc": "npm:^1.1.25"
