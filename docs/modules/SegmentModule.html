@@ -158,8 +158,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="32"
-                                    class="link-to-prism">src/ngx-segment-analytics.module.ts:32</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="20"
+                                    class="link-to-prism">src/ngx-segment-analytics.module.ts:20</a></div>
                         </td>
                     </tr>
 
@@ -218,28 +218,16 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {ModuleWithProviders, NgModule, Optional, PLATFORM_ID, SkipSelf} from &#x27;@angular/core&#x27;;
-import {CommonModule, isPlatformBrowser} from &#x27;@angular/common&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {ModuleWithProviders, NgModule, Optional, SkipSelf} from &#x27;@angular/core&#x27;;
+import {CommonModule} from &#x27;@angular/common&#x27;;
 import {SegmentService} from &#x27;./ngx-segment-analytics.service&#x27;;
 import {SEGMENT_CONFIG, SegmentConfig} from &#x27;./ngx-segment-analytics.config&#x27;;
-import {WindowWrapper} from &#x27;./window-wrapper&#x27;;
-
-/**
- * Window Provider for Angular AOT
- * @returns Browser Window instance
- */
-export function getWindow(platformId: any) {
-    return isPlatformBrowser(platformId) ? window : {};
-}
 
 /**
  * Segment Module
  */
 @NgModule({
     imports: [CommonModule],
-    providers: [
-        {provide: WindowWrapper, useFactory: getWindow, deps: [PLATFORM_ID]},
-    ]
 })
 export class SegmentModule {
 

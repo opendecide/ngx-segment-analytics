@@ -136,13 +136,9 @@
 
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Inject, Injectable} from &#x27;@angular/core&#x27;;
-import {DOCUMENT} from &#x27;@angular/common&#x27;;
 import {DEFAULT_CONFIG, SEGMENT_CONFIG, SegmentConfig} from &#x27;./ngx-segment-analytics.config&#x27;;
-import {WindowWrapper} from &#x27;./window-wrapper&#x27;;
 import {AnalyticsBrowser} from &#x27;@segment/analytics-next&#x27;;
 import type {User, AnalyticsBrowserSettings, Analytics, InitOptions, Plugin as NewSegmentPlugin} from &#x27;@segment/analytics-next&#x27;;
-
-// import type {DestinationMiddlewareParams, MiddlewareParams} from &#x27;@segment/analytics-next/src/plugins/middleware&#x27;;
 
 export interface SegmentPlugin {
     // Video Plugins
@@ -174,13 +170,9 @@ export class SegmentService {
     protected static readonly _segmentInstance: AnalyticsBrowser &#x3D; new AnalyticsBrowser();
 
     /**
-     * @param _w Browser window
-     * @param _doc Browser DOM
      * @param userConfig Segment configuration
      */
     constructor(
-        @Inject(WindowWrapper) private _w: WindowWrapper,
-        @Inject(DOCUMENT) private _doc: any,
         @Inject(SEGMENT_CONFIG) userConfig: SegmentConfig
     ) {
         this._config &#x3D; {...DEFAULT_CONFIG, ...userConfig};
@@ -194,7 +186,7 @@ export class SegmentService {
             console.log(&#x27;Segment initialization...&#x27;);
         }
 
-        if (this._config.loadOnInitialization &amp;&amp; !SegmentService._segmentInstance.instance.initialized) {
+        if (this._config.loadOnInitialization &amp;&amp; !SegmentService._segmentInstance.instance?.initialized) {
             if (this._config.segmentHost) {
                 // Deprecated option
                 const cdnUrl &#x3D; &#x27;https://&#x27; + this._config.segmentHost;
@@ -202,7 +194,7 @@ export class SegmentService {
                 const cdnUrl &#x3D; this._config.cdnURL;
             }
 
-            SegmentService._segmentInstance.load({writeKey: this._config.apiKey, cdnURL: this._config.segmentHost});
+            this.load({writeKey: this._config.apiKey, cdnURL: this._config.segmentHost});
         }
     }
 
@@ -220,10 +212,13 @@ export class SegmentService {
             settings &#x3D; settingsOrApiKey;
         }
 
-        SegmentService._segmentInstance.load(settings, options);
-        if (true &#x3D;&#x3D;&#x3D; this._config.debug) {
-            console.log(&#x27;Segment initialized&#x27;);
-        }
+        SegmentService._segmentInstance.load(settings, options)
+            .then(() &#x3D;&gt; {
+                if (this._config.debug) {
+                    console.log(&#x27;Segment initialized&#x27;);
+                }
+            });
+
         this.debug(this._config.debug);
     }
 
