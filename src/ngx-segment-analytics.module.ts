@@ -1,25 +1,13 @@
-import {ModuleWithProviders, NgModule, Optional, PLATFORM_ID, SkipSelf} from '@angular/core';
-import {CommonModule, isPlatformBrowser} from '@angular/common';
+import {ModuleWithProviders, NgModule, Optional, SkipSelf} from '@angular/core';
+import {CommonModule} from '@angular/common';
 import {SegmentService} from './ngx-segment-analytics.service';
 import {SEGMENT_CONFIG, SegmentConfig} from './ngx-segment-analytics.config';
-import {WindowWrapper} from './window-wrapper';
-
-/**
- * Window Provider for Angular AOT
- * @returns Browser Window instance
- */
-export function getWindow(platformId: any) {
-    return isPlatformBrowser(platformId) ? window : {};
-}
 
 /**
  * Segment Module
  */
 @NgModule({
     imports: [CommonModule],
-    providers: [
-        {provide: WindowWrapper, useFactory: getWindow, deps: [PLATFORM_ID]},
-    ]
 })
 export class SegmentModule {
 

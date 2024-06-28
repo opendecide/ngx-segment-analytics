@@ -1,11 +1,7 @@
 import {Inject, Injectable} from '@angular/core';
-import {DOCUMENT} from '@angular/common';
 import {DEFAULT_CONFIG, SEGMENT_CONFIG, SegmentConfig} from './ngx-segment-analytics.config';
-import {WindowWrapper} from './window-wrapper';
 import {AnalyticsBrowser} from '@segment/analytics-next';
 import type {User, AnalyticsBrowserSettings, Analytics, InitOptions, Plugin as NewSegmentPlugin} from '@segment/analytics-next';
-
-// import type {DestinationMiddlewareParams, MiddlewareParams} from '@segment/analytics-next/src/plugins/middleware';
 
 export interface SegmentPlugin {
     // Video Plugins
@@ -37,13 +33,9 @@ export class SegmentService {
     protected static readonly _segmentInstance: AnalyticsBrowser = new AnalyticsBrowser();
 
     /**
-     * @param _w Browser window
-     * @param _doc Browser DOM
      * @param userConfig Segment configuration
      */
     constructor(
-        @Inject(WindowWrapper) private _w: WindowWrapper,
-        @Inject(DOCUMENT) private _doc: any,
         @Inject(SEGMENT_CONFIG) userConfig: SegmentConfig
     ) {
         this._config = {...DEFAULT_CONFIG, ...userConfig};
