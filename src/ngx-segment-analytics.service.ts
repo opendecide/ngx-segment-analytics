@@ -49,7 +49,7 @@ export class SegmentService {
             console.log('Segment initialization...');
         }
 
-        if (this._config.loadOnInitialization && !SegmentService._segmentInstance.instance.initialized) {
+        if (this._config.loadOnInitialization && !SegmentService._segmentInstance.instance?.initialized) {
             if (this._config.segmentHost) {
                 // Deprecated option
                 const cdnUrl = 'https://' + this._config.segmentHost;
@@ -57,7 +57,7 @@ export class SegmentService {
                 const cdnUrl = this._config.cdnURL;
             }
 
-            SegmentService._segmentInstance.load({writeKey: this._config.apiKey, cdnURL: this._config.segmentHost});
+            this.load({writeKey: this._config.apiKey, cdnURL: this._config.segmentHost});
         }
     }
 
@@ -75,10 +75,13 @@ export class SegmentService {
             settings = settingsOrApiKey;
         }
 
-        SegmentService._segmentInstance.load(settings, options);
-        if (true === this._config.debug) {
-            console.log('Segment initialized');
-        }
+        SegmentService._segmentInstance.load(settings, options)
+            .then(() => {
+                if (this._config.debug) {
+                    console.log('Segment initialized');
+                }
+            });
+
         this.debug(this._config.debug);
     }
 
