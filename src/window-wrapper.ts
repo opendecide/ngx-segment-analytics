@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import type { AnalyticsSnippet } from "@segment/analytics-next";
+import type { AnalyticsSnippet } from '@segment/analytics-next';
 
 /**
  * Window Wrapper for Angular AOT
