@@ -187,14 +187,16 @@ export class SegmentService {
         }
 
         if (this._config.loadOnInitialization &amp;&amp; !SegmentService._segmentInstance.instance?.initialized) {
+            let cdnUrl: string | undefined;
+            
             if (this._config.segmentHost) {
                 // Deprecated option
-                const cdnUrl &#x3D; &#x27;https://&#x27; + this._config.segmentHost;
+                cdnUrl &#x3D; &#x27;https://&#x27; + this._config.segmentHost;
             } else {
-                const cdnUrl &#x3D; this._config.cdnURL;
+                cdnUrl &#x3D; this._config.cdnURL;
             }
 
-            this.load({writeKey: this._config.apiKey, cdnURL: this._config.segmentHost});
+            this.load({writeKey: this._config.apiKey, cdnURL: cdnUrl});
         }
     }
 

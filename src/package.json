@@ -19,8 +19,8 @@
     "url": "https://github.com/opendecide/ngx-segment-analytics/issues"
   },
   "peerDependencies": {
-    "@angular/common": ">=12.0.0 <19.0.0",
-    "@angular/core": ">=12.0.0 <19.0.0",
+    "@angular/common": ">=12.0.0 <20.0.0",
+    "@angular/core": ">=12.0.0 <20.0.0",
     "@segment/analytics-next": "^1.70.0"
   }
 }
