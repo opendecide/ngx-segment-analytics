@@ -34,7 +34,6 @@ export const DEFAULT_CONFIG: SegmentConfig = {
     debug: false,
     loadOnInitialization: true, // Compatibility < 1.2.5
     cdnURL: 'https://cdn.segment.com',
-    segmentHost: 'cdn.segment.com',
     segmentUri: '/analytics.js/v1/$API_KEY$/analytics.min.js',
     plugins: [],
 };

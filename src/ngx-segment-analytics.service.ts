@@ -51,12 +51,14 @@ export class SegmentService {
 
         if (this._config.loadOnInitialization && !SegmentService._segmentInstance.instance?.initialized) {
             let cdnUrl: string | undefined;
-            
+
+            if (this._config.cdnURL) {
+                cdnUrl = this._config.cdnURL;
+            }
+
             if (this._config.segmentHost) {
                 // Deprecated option
                 cdnUrl = 'https://' + this._config.segmentHost;
-            } else {
-                cdnUrl = this._config.cdnURL;
             }
 
             this.load({writeKey: this._config.apiKey, cdnURL: cdnUrl});
