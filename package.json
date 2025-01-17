@@ -1,6 +1,6 @@
 {
   "name": "@opendecide/ngx-segment-analytics",
-  "version": "19.0.0",
+  "version": "19.0.1",
   "packageManager": "yarn@4.6.0",
   "scripts": {
     "build": "ng-packagr -p src/ng-package.json",
